@@ -21,4 +21,10 @@ echo "Local Kafka instance started, output logged to kafka_output.log..."
 grep -E "\|[[:space:]]*Plaintext Ports[[:space:]]*\|[[:space:]]*[0-9]+[[:space:]]*\|" kafka_output.log | grep -o "[0-9]\+" > extracted_plaintext_port.txt
 echo "Plaintext Port dumped into extracted_plaintext_port.txt..."
 
+# Create Kafka topic. Have to run this twice for it to work, don't really know why 
+confluent local kafka topic create purchases
+confluent local kafka topic create purchases
+
+
+
 
