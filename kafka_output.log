@@ -1,0 +1,10 @@
+
+Pulling from confluentinc/confluent-local
+Digest: sha256:ad62269bf4766820c298f7581cf872a49f46a11dbaebcccb4fd2e71049288c5b
+Status: Image is up to date for confluentinc/confluent-local:7.6.0
++-----------------+-------+
+| Kafka REST Port | 8082  |
+| Plaintext Ports | 50979 |
++-----------------+-------+
+Started Confluent Local containers "645e61576e".
+To continue your Confluent Local experience, run confluent local kafka topic create <topic> and confluent local kafka topic produce <topic>.
