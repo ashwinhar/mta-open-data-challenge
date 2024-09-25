@@ -1,0 +1,11 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "name": "fellowship_capstone",
+            "database": "${workspaceFolder:fellowship_capstone}/database_setup/mta.db"
+        }
+    ]
+}
