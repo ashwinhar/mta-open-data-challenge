@@ -99,15 +99,14 @@ if __name__ == "__main__":
                                                 restriction=timestamp,
                                                 limit=1000000)
         create_table(conn, origin_destination_df,
-                     f"{config.MTA_SCHEMA}.origin_destination_20230102")
+                     f"origin_destination_20230102")
 
         # Build stations table
         stations_df = extract_dataset(config.MTA_CODE_STATIONS,
                                       limit=10000000)
-        create_table(conn, stations_df, f"{config.MTA_SCHEMA}.stations")
+        create_table(conn, stations_df, f"stations")
 
         # Build reduced fare table
         reduced_fare_df = extract_dataset(config.MTA_CODE_REDUCED_FARE,
                                           limit=10000000)
-        create_table(conn, reduced_fare_df, f"{
-                     config.MTA_SCHEMA}.reduced_fare")
+        create_table(conn, reduced_fare_df, f"reduced_fare")
