@@ -1,0 +1,9 @@
+version: 2
+
+sources: 
+  - name: mta
+    database: mta_dev
+    schema: main
+    tables:
+      - name: stations
+      - name: reduced_fare
