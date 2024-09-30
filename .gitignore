@@ -2,3 +2,11 @@ config.py
 extracted_plaintext_port.txt
 kafka_output.log
 *.db
+*.pyc
+*.duckdb
+/mta_data_dictionaries/*
+dbt_fellowship/models/example/my_first_dbt_model.sql
+dbt_fellowship/models/example/my_second_dbt_model.sql
+database_setup/__pycache__/config.cpython-312.pyc
+.vscode/settings.json
+capstone.session.sql
