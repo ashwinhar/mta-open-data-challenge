@@ -1,9 +1,3 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
-
 SELECT
     gtfs_stop_id
    ,station_id
