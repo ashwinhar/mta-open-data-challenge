@@ -2,10 +2,11 @@
     "sqltools.useNodeRuntime": true,
     "sqltools.connections": [
         {
+            "name": "capstone",
+            "accessMode": "Read Only",
             "previewLimit": 50,
             "driver": "DuckDB",
-            "name": "fellowship_capstone",
-            "database": "${workspaceFolder:fellowship_capstone}/database_setup/mta.db"
+            "databaseFilePath": "/Users/Ashwin/Desktop/fellowship_capstone/dbt_fellowship/mta_dev.duckdb"
         }
     ]
 }
