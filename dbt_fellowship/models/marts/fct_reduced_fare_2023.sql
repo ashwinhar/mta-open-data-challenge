@@ -1,1 +1,1 @@
-select * from {{ref('stg_reduced_fare_2023')}}`
+select * from {{ref('stg_reduced_fare_2023')}}
