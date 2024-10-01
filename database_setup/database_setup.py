@@ -79,34 +79,64 @@ def create_schema(db_conn: duckdb.DuckDBPyConnection,
     Create schema in database if not exists
 
     Params: 
-        conn - Connection to local DuckDB database. Typically returned by get_database_connection()
+        db_conn - Connection to local DuckDB database. Typically returned by get_database_connection()
         schema_name - Schema name as string
     """
 
     db_conn.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
 
 
+def table_exists(db_conn: duckdb.DuckDBPyConnection, schema_name, table_name) -> bool:
+    """
+    Checks if table exists in DuckDB database. 
+
+    Params:
+        db_conn - Connection to local DuckDB database. Typically returned by get_database_connection()
+        schema_name - Schema name as string
+        table_name - Table name as string
+    Returns:
+        bool - True if table exists, False if it doesn't
+    """
+
+    query = f"""
+    SELECT 1
+    FROM information_schema.tables
+    WHERE
+            table_schema = '{schema_name}'
+        AND table_name = '{table_name}'
+    """
+    result = db_conn.sql(query).fetchone()
+    return result is not None
+
+
 if __name__ == "__main__":
+
+    # TODO: All these table definitions should be pulled out into their own objects
 
     with get_database_connection(config.DEV_DATABASE) as conn:
 
-        create_schema(conn, config.MTA_SCHEMA)
-
         # Build origin destination table restricted to a single day
-        timestamp = "'2023-01-02T00:00:00'"
-        origin_destination_df = extract_dataset(config.MTA_CODE_ORIGIN_DESTINATION_2023,
-                                                restriction_type="timestamp",
-                                                restriction=timestamp,
-                                                limit=1000000)
-        create_table(conn, origin_destination_df,
-                     f"mta.origin_destination_20230102")
+        origin_destination_table_name = "origin_destination_20230102"
+        if not table_exists(conn, config.MTA_SCHEMA, origin_destination_table_name):
+            timestamp = "'2023-01-02T00:00:00'"
+            origin_destination_df = extract_dataset(config.MTA_CODE_ORIGIN_DESTINATION_2023,
+                                                    restriction_type="timestamp",
+                                                    restriction=timestamp,
+                                                    limit=1000000)
+            create_table(conn, origin_destination_df,
+                         # TODO: This is bad desing, we need to pull this out into a variable
+                         f"mta.origin_destination_20230102")
 
         # Build stations table
-        stations_df = extract_dataset(config.MTA_CODE_STATIONS,
-                                      limit=10000000)
-        create_table(conn, stations_df, f"mta.stations")
+        stations_table_name = "stations"
+        if not table_exists(conn, config.MTA_SCHEMA, stations_table_name):
+            stations_df = extract_dataset(config.MTA_CODE_STATIONS,
+                                          limit=10000000)
+            create_table(conn, stations_df, f"mta.stations")
 
         # Build reduced fare table
-        reduced_fare_df = extract_dataset(config.MTA_CODE_REDUCED_FARE,
-                                          limit=10000000)
-        create_table(conn, reduced_fare_df, f"mta.reduced_fare")
+        reduced_fare_table_name = "reduced_fare"
+        if not table_exists(conn, config.MTA_SCHEMA, reduced_fare_table_name):
+            reduced_fare_df = extract_dataset(config.MTA_CODE_REDUCED_FARE,
+                                              limit=10000000)
+            create_table(conn, reduced_fare_df, f"mta.reduced_fare")
