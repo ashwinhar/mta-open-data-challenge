@@ -12,3 +12,4 @@ sources:
               - unique
               - not_null
       - name: reduced_fare
+      - name: hourly_ridership_20230102
