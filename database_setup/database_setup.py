@@ -114,17 +114,17 @@ if __name__ == "__main__":
     # TODO: All these table definitions should be pulled out into their own objects
 
     with get_database_connection(config.DEV_DATABASE) as conn:
+        timestamp = "'2023-01-02T00:00:00'"
 
-        # Build origin destination table restricted to a single day
+        # Build origin destination table restricted to a single day (defined by timestamp above)
         origin_destination_table_name = "origin_destination_20230102"
         if not table_exists(conn, config.MTA_SCHEMA, origin_destination_table_name):
-            timestamp = "'2023-01-02T00:00:00'"
             origin_destination_df = extract_dataset(config.MTA_CODE_ORIGIN_DESTINATION_2023,
                                                     restriction_type="timestamp",
                                                     restriction=timestamp,
                                                     limit=1000000)
             create_table(conn, origin_destination_df,
-                         # TODO: This is bad desing, we need to pull this out into a variable
+                         # TODO: This is bad design, we need to pull this out into a variable
                          f"mta.origin_destination_20230102")
 
         # Build stations table
@@ -140,3 +140,14 @@ if __name__ == "__main__":
             reduced_fare_df = extract_dataset(config.MTA_CODE_REDUCED_FARE,
                                               limit=10000000)
             create_table(conn, reduced_fare_df, f"mta.reduced_fare")
+
+        hourly_ridership_table_name = "hourly_ridership_20230102"
+        if not table_exists(conn, config.MTA_SCHEMA, hourly_ridership_table_name):
+            hourly_ridership_20230102_df = extract_dataset(
+                config.MTA_CODE_HOURLY_RIDERSHIP,
+                restriction_type="transit_timestamp",
+                restriction=timestamp,
+                limit=10000000
+            )
+            create_table(conn, hourly_ridership_20230102_df,
+                         f"mta.hourly_ridership_20230102")
