@@ -11,3 +11,4 @@ database_setup/__pycache__/config.cpython-312.pyc
 .vscode/settings.json
 capstone.session.sql
 logs/dbt.log
+.DS_Store

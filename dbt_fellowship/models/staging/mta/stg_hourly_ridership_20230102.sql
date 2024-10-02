@@ -1,5 +1,5 @@
 SELECT 
-    CAST(transit_timestamp AS DATE)     transit_timestamp
+    CAST(transit_timestamp AS TIMESTAMP)     transit_timestamp
    ,transit_mode                        transit_mode
    ,station_complex_id                  station_complex_id
    ,station_complex                     station_complex
