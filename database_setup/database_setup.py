@@ -116,6 +116,8 @@ if __name__ == "__main__":
     with get_database_connection(config.DEV_DATABASE) as conn:
         timestamp = "'2023-01-02T00:00:00'"
 
+        create_schema(conn, config.MTA_SCHEMA)
+
         # Build origin destination table restricted to a single day (defined by timestamp above)
         origin_destination_table_name = "origin_destination_20230102"
         if not table_exists(conn, config.MTA_SCHEMA, origin_destination_table_name):
