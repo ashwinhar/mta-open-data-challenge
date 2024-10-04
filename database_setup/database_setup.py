@@ -67,7 +67,7 @@ def create_table(db_conn: duckdb.DuckDBPyConnection,
 
     """
     # TODO: Create support for full refresh
-    statement = f"CREATE TABLE IF NOT EXISTS {
+    statement = f"CREATE TABLE {
         table_name} AS SELECT * FROM results_dataframe"
     db_conn.sql(statement)
 
