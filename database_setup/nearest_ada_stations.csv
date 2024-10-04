@@ -1,5 +1,5 @@
-﻿mta_sort_order,planned_ada_complex_id,planned_ada_station_id,planned_ada_station_name,northbound_nearest_complex_id,northbound_nearest_station_name,southbound_nearest_complex_id,southbound_nearest_station_name,notes
-1,441,441,"Central Park North (110 St) / Lenox (2, 3 lines)",438,135 St,157,96 St,
+﻿mta_sort_order,planned_ada_complex_id,planned_ada_station_id,planned_ada_station_name,northbound_nearest_complex_id,northbound_nearest_stop_name,southbound_nearest_complex_id,southbound_nearest_station_name,notes
+1,441,441,"Central Park North (110 St) / Lenox (2, 3 lines)",438,135 St,310,96 St,
 2,320,320,23 St / Broadway - 7 Av (1 line),318,34 St Penn Station,327,Chambers St,
 3,90,90,"Van Siclen Av / Jamaica (J, Z lines)",NULL,NULL,98,Flushing Av,
 4,80,80,"121 St / Jamaica (J, Z lines)",NULL,NULL,98,Flushing Av,
@@ -14,7 +14,7 @@
 13,154,154,"116 St / Eighth Avenue ( B, C lines)",153,125 St,614,59 St Columbus Circle,
 14,347,347,Saratoga Av / New Lots (3 line),345,Crown Heights/Utica,NULL,NULL,
 15,354,354,"Sterling St / Nostrand (2, 5 lines)",341,Eastern Parkway/Brooklyn Museum,356,Church Av,
-16,439,439,"125 St / Lenox (2, 3 lines)",152,135 St,157,96 St,
+16,439,439,"125 St / Lenox (2, 3 lines)",152,135 St,310,96 St,
 17,238,238,"Smith - 9th Sts / Sixth Av (F, G lines)",636,Jay St. Metro Tech,240,7 Av (G),This one is dicey. It depends on the line you're coming from 
 18,86,86,Cypress Hills / Jamaica (J line),98,Flushing Av.,NULL,NULL,
 19,608,29,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",617,Atlantic Av Barclays Ctr,240,7 Av ,"Because of the way the Capital Plan is worded, I'm assuming that both stations that are part of complex_id = 608 are eligible for ADA expansion. Both records have mta_sort_order = 19."
