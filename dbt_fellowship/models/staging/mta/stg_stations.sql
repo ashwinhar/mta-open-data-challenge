@@ -1,14 +1,14 @@
 select
-    gtfs_stop_id
-   ,station_id
-   ,complex_id
-   ,line
-   ,stop_name
-   ,borough
-   ,gtfs_latitude
-   ,gtfs_longitude
-   ,ada
-   ,ada_northbound
-   ,ada_southbound
-   ,georeference
+    gtfs_stop_id                        gtfs_stop_id
+   ,CAST(station_id AS NUMERIC)         station_id
+   ,CAST(complex_id AS NUMERIC)         complex_id
+   ,line                                line
+   ,stop_name                           stop_name
+   ,borough                             borough
+   ,CAST(gtfs_latitude AS NUMERIC)      gtfs_latitude
+   ,CAST(gtfs_longitude AS NUMERIC)     gtfs_longitude
+   ,CAST(ada AS TINYINT)                ada
+   ,CAST(ada_northbound AS BOOLEAN)     ada_northbound
+   ,CAST(ada_southbound AS BOOLEAN)     ada_southbound
+   ,georeference                        georeference
 from {{ source('mta','stations')}}
