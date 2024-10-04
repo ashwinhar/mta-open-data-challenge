@@ -116,5 +116,23 @@ models:
         description: The name of the subway station complex where the trips are inferred to have ended.
       - name: estimated_average_ridership
         description: The estimated ridership for an origin-destination pair and hour of day, averaged by day of week over the calendar month.
+  - name: stg_nearest_ada_stations
+    description: > 
+      This table details the 30 stations that are eligible for ADA access improvements under the 2025-2029 Capital Plan ([Ashwin to insert link]). 
+      The planned_ada_station_name is copied exactly from the Capital Plan, and is duplicated in two separate cases (where multiple stations within
+      a complex are part of the ADA expansion). To find which specific subway lines each station_id references, you should join to stg_stations.
+      
+      The northbound and southbound complexes that are referenced are my *best guess* as to which at least partially ADA-accessible complex someone would exit from in either 
+      direction on the line. In this case "partially ADA-accesisble" means any complex that has at least one record in stg_stations with ada = 1. 
+
+    columns:
+      - name: mta_sort_order
+        description: The order that the planned_ada_station_name appeared in the Capital Plan. It's unknown if this number is an indication of priority or if it's arbitrary.
+      - name: planned_ada_complex_id
+        description: The complex_id that the station_id belongs to in stg_stations. 
+      - name: planned_ada_station_id
+        description: My best guess as to the matching station_id available in stg_stations. 
+      - name: planned_ada_station_name
+        description: The exact station name referenced in pg. 187 (pdf pg. 95). May be repeated across records in case the station name references multiple station_ids. 
 
 
