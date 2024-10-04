@@ -14,3 +14,5 @@ logs/dbt.log
 .DS_Store
 .vscode/settings.json
 dbt_fellowship/mta_data_dictionaries
+database_setup/to_do.txt
+dbt_fellowship/models/staging/mta/to_do.txt
