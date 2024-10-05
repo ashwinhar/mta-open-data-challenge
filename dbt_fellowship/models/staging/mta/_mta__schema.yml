@@ -27,48 +27,24 @@ models:
       - name: "ada_southbound"
         description: "{{ doc('ada_southbound')}}"
   - name: stg_hourly_ridership_20230102
-    description: >
-      Staged data from the MTA Subway Hourly Ridership dataset (https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data).
-      Documentation copied directly from the MTA Data Dictionary, and filtered to transit_timestamp = "'2023-01-02T00:00:00'".
+    description: "{{ doc('hourly_ridership')}}"
     columns:
       - name: "transit_timestamp"
-        description: >
-          Timestamp payment took place in local time. All transactions here are rounded down to the nearest
-          hour. For example, a swipe that took place at 1:37pm will be reported as having taken place at 1pm.
+        description: "{{doc('transit_timestamp')}}"
       - name: "transit_mode"
-        description: Distinguishes between the subway, Staten Island Railway, and the Roosevelt Island Tram
+        description: "{{doc('transit_mode')}}"
       - name: "station_complex_id"
-        description: A unique identifier for station complexes
+        description: "{{doc('station_complex_id')}}"
       - name: "station_complex"
-        description: >
-          The subway complex where an entry swipe or tap took place. Large subway complexes, such as Times Square
-          and Fulton Center, may contain multiple subway lines. The subway complex name includes the routes that stop 
-          at the complex in parenthesis, such as Zerega Av (6).
+        description: "{{doc('station_complex')}}"
       - name: "payment_method"
-        description: Specifies whether the payment method used to enter was from OMNY or MetroCard.
+        description: "{{doc('payment_method')}}"
       - name: "fare_class_category"
-        description: >
-          The class of fare payment used for the trip. The consolidated categories are:
-          • MetroCard (Fair Fare)
-          • MetroCard (Full Fare)
-          • MetroCard (Other)
-          • MetroCard (Senior & Disability)
-          • MetroCard (Students)
-          • MetroCard (Unlimited 30-Day)
-          • MetroCard (Unlimited 7-Day)
-          • OMNY (Full Fare)
-          • OMNY (Other)
-          • OMNY (Seniors & Disabilities)
+        description: "{{doc('fare_class_category')}}"
       - name: "ridership"
-        description: >
-          Total number of riders that entered a subway complex via OMNY or MetroCard at the specific hour and for that
-          specific fare type.
+        description: "{{doc('ridership')}}"
       - name: "transfers"
-        description: >
-          Number of individuals who entered a subway complex via a free bus-to-subway, or free out-of-network
-          transfer. This represents a subset of total ridership, meaning that these transfers are already included in the
-          preceding ridership column. Transfers that take place within a subway complex (e.g., individuals transferring
-          from the 2 to the 4 train within Atlantic Avenue) are not captured here.
+        description: "{{doc('transfers')}}"
   - name: stg_origin_destination_20230102
     description: >
       Staged data from the MTA Origin-Destination Ridership Estimate: 2023 dataset (https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-2/uhf3-t34z/about_data).

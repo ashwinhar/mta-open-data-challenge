@@ -39,4 +39,22 @@ sources:
             description: "{{ doc('ada_southbound')}}"
       - name: reduced_fare
       - name: hourly_ridership_20230102
+        description: "{{ doc('hourly_ridership')}}"
+        columns:
+          - name: "transit_timestamp"
+            description: "{{doc('transit_timestamp')}}"
+          - name: "transit_mode"
+            description: "{{doc('transit_mode')}}"
+          - name: "station_complex_id"
+            description: "{{doc('station_complex_id')}}"
+          - name: "station_complex"
+            description: "{{doc('station_complex')}}"
+          - name: "payment_method"
+            description: "{{doc('payment_method')}}"
+          - name: "fare_class_category"
+            description: "{{doc('fare_class_category')}}"
+          - name: "ridership"
+            description: "{{doc('ridership')}}"
+          - name: "transfers"
+            description: "{{doc('transfers')}}"
       - name: origin_destination_20230102
