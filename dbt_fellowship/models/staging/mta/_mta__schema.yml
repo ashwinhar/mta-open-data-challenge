@@ -46,31 +46,26 @@ models:
       - name: "transfers"
         description: "{{doc('transfers')}}"
   - name: stg_origin_destination_20230102
-    description: >
-      Staged data from the MTA Origin-Destination Ridership Estimate: 2023 dataset (https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-2/uhf3-t34z/about_data).
-      Documentation is copied directly from the data dictionary and table is filtered to timestamp = "'2023-01-02T00:00:00'".
-
-      This dataset provides an estimate of subway travel patterns based on scaled-up OMNY and MetroCard return swipe data. It provides estimated passenger volumes for all populated origin-destination 
-      (O-D) pairs aggregated by month, day of the week, and hour of day. It also provides the name, ID, and approximate latitude and longitude of the origin and destination subway complexes.
+    description: "{{doc('origin_destination')}}"
     columns: 
       - name: origin_month
-        description: The month in which the subway trips occurred.
+        description: "{{doc('origin_month')}}"
       - name: origin_day_of_week
-        description: The day of the week on which the subway trips occurred (Monday, Tuesday, etc.).
+        description: "{{doc('origin_day_of_week')}}"
       - name: origin_hour_of_day
-        description: The hour of the day in which the subway trips occurred. All trip times are rounded down to the nearest hour.
+        description: "{{doc('origin_hour_of_day')}}"
       - name: origin_timestamp
-        description: Representative datetime for the year, month, day of week, and hour of day in which the subway trips occurred. This date will be from the first full week of the month.
+        description: "{{doc('origin_timestamp')}}"
       - name: origin_station_complex_id
-        description: The unique identifier for the subway station complex where the trips originated.
+        description: "{{doc('origin_station_complex_id')}}"
       - name: origin_station_complex_name
-        description: The name of the subway station complex where the trips originated.
+        description: "{{doc('origin_station_complex_name')}}"
       - name: destination_station_complex_id
-        description: The unique identifier for the subway station complex where the trips are inferred to have ended.
+        description: "{{doc('destination_station_complex_id')}}"
       - name: destination_station_complex_name
-        description: The name of the subway station complex where the trips are inferred to have ended.
+        description: "{{doc('destination_station_complex_name')}}"
       - name: estimated_average_ridership
-        description: The estimated ridership for an origin-destination pair and hour of day, averaged by day of week over the calendar month.
+        description:  "{{doc('estimated_average_ridership')}}"
 
 
 

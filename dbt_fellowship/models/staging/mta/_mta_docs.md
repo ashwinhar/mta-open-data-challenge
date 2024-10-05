@@ -222,3 +222,97 @@ Number of individuals who entered a subway complex via a free bus-to-subway, or 
 
 {% enddocs %}
 
+
+
+{% docs origin_destination %}
+
+Staged data from the [MTA Origin-Destination Ridership Estimate: 2023](https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-2/uhf3-t34z/about_data) dataset .
+
+This dataset provides an estimate of subway travel patterns based on scaled-up OMNY and MetroCard return swipe data. It provides estimated passenger volumes for all populated origin-destination (O-D) pairs aggregated by month, day of the week, and hour of day. It also provides the name, ID, and approximate latitude and longitude of the origin and destination subway complexes.
+
+This tabled is filtered by `transit_timestamp` and is set to be filtered to the `GLOBAL_TIMESTAMP` variable in `*/fellowship_capstone/database_setup/mta_dataset.py`.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_month %}
+
+The month in which the subway trips occurred.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_day_of_week %}
+
+The day of the week on which the subway trips occurred (Monday, Tuesday, etc.).
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_hour_of_day %}
+
+The hour of the day in which the subway trips occurred. All trip times are rounded down to the nearest hour.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_timestamp %}
+
+Representative datetime for the year, month, day of week, and hour of day in which the subway trips occurred. This date will be from the first full week of the month.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_station_complex_id %}
+
+The unique identifier for the subway station complex where the trips originated.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs origin_station_complex_name %}
+
+The name of the subway station complex where the trips originated.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs destination_station_complex_id %}
+
+The unique identifier for the subway station complex where the trips are inferred to have ended.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs destination_station_complex_name %}
+
+The name of the subway station complex where the trips are inferred to have ended.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}
+
+
+{% docs estimated_average_ridership %}
+
+The estimated ridership for an origin-destination pair and hour of day, averaged by day of week over the calendar month.
+
+*Documentation copied directly from the MTA website*
+
+{% enddocs %}

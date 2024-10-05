@@ -58,3 +58,23 @@ sources:
           - name: "transfers"
             description: "{{doc('transfers')}}"
       - name: origin_destination_20230102
+        description: "{{doc('origin_destination')}}"
+        columns: 
+        - name: month
+          description: "{{doc('origin_month')}}"
+        - name: day_of_week
+          description: "{{doc('origin_day_of_week')}}"
+        - name: hour_of_day
+          description: "{{doc('origin_hour_of_day')}}"
+        - name: timestamp
+          description: "{{doc('origin_timestamp')}}"
+        - name: origin_station_complex_id
+          description: "{{doc('origin_station_complex_id')}}"
+        - name: origin_station_complex_name
+          description: "{{doc('origin_station_complex_name')}}"
+        - name: destination_station_complex_id
+          description: "{{doc('destination_station_complex_id')}}"
+        - name: destination_station_complex_name
+          description: "{{doc('destination_station_complex_name')}}"
+        - name: estimated_average_ridership
+          description:  "{{doc('estimated_average_ridership')}}"
