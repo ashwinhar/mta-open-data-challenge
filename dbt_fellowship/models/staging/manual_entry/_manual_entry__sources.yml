@@ -6,3 +6,23 @@ sources:
     schema: manual_entry
     tables:
       - name: nearest_ada_stations
+        description: "{{ doc('nearest_ada_stations')}}"
+        columns:
+          - name: mta_sort_order
+            description: "{{ doc('mta_sort_order')}}"
+          - name: planned_ada_complex_id
+            description: "{{ doc('planned_ada_complex_id')}}"
+          - name: planned_ada_station_id
+            description: "{{ doc('planned_ada_station_id')}}"
+          - name: planned_ada_station_name
+            description: "{{ doc('planned_ada_station_name')}}"
+          - name: northbound_nearest_complex_id
+            description: "{{ doc('northbound_nearest_complex_id')}}"
+          - name: northbound_nearest_station_name
+            description: "{{ doc('northbound_nearest_station_name')}}"
+          - name: southbound_nearest_complex_id
+            description: "{{ doc('southbound_nearest_complex_id')}}"
+          - name: southbound_nearest_station_name
+            description: "{{ doc('southbound_nearest_station_name')}}"
+          - name: notes
+            description: Scratch notes within the csv
