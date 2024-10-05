@@ -2,51 +2,30 @@ version: 2
 
 models:
   - name: stg_stations
-    description: >
-      Staged data from the MTA Subway Stations dataset (https://data.ny.gov/Transportation/MTA-Subway-Stations/39hk-dx4f/about_data).
-      Documentation directly copied from MTA Data Dictionary. 
+    description: "{{ doc('stations')}}"
     columns:
       - name: "gtfs_stop_id"
-        description: >
-          The ID used for the station in the General Transit Feed Specification (GTFS), an open standard used to 
-          display public transit schedule data.
-        tests:
-          - unique
-          - not_null
+        description: "{{ doc('gtfs_stop_id')}}"
       - name: "station_id"
-        description: The Station Master Reference Number.
-        tests:
-          - not_null
+        description: "{{ doc('station_id')}}"
       - name: "complex_id"
-        description: The Complex Master Reference Number.
-        tests:
-          - not_null
+        description: "{{ doc('complex_id')}}"
       - name: "line"
-        description: >
-          The operational line of the subway system the station is located on, such as Queens
-          Blvd, Lexington Av, or Sea Beach.
+        description: "{{ doc('line')}}"
       - name: "stop_name"
-        description: The name of the subway station.
+        description: "{{ doc('stop_name')}}"
       - name: "borough"
-        description: >
-          The borough the station is in. Bx for Bronx, B for Brooklyn, M for Manhattan, Q for
-          Queens, SI for Staten Island. 
+        description: "{{ doc('borough')}}"
       - name: "gtfs_latitude"
-        description: The latitude for the centroid of the station
+        description: "{{ doc('gtfs_latitude')}}"
       - name: "gtfs_longitude"
-        description: The longitude for the centroid of the station
+        description: "{{ doc('gtfs_longitude')}}"
       - name: "ada"
-        description: >
-          0 if the station is not ADA-accessible, 1 if the station is fully accessible, 
-          2 if the station is partially accessible. 
+        description: "{{ doc('ada')}}"
       - name: "ada_northbound"
-        description: >
-          0 if the station is not ADA-accessible in the northbound direction, 1 if the station is fully
-          accessible in the northbound direction.
+        description: "{{ doc('ada_northbound')}}"
       - name: "ada_southbound"
-        description: > 
-          0 if the station is not ADA-accessible in the southbound direction, 1 if the station is fully
-          accessible in the southbound direction
+        description: "{{ doc('ada_southbound')}}"
   - name: stg_hourly_ridership_20230102
     description: >
       Staged data from the MTA Subway Hourly Ridership dataset (https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data).

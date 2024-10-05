@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: dim_stations
+  - name: fct_hourly_ridership_20230102
+  - name: fct_origin_destination_20230102

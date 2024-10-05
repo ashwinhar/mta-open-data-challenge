@@ -1,7 +1,7 @@
 '''Defines dataclasses that store information from MTA Datasets'''
 from dataclasses import dataclass
 
-# The timestamp with which all
+# The timestamp with which all timestamp-bound tables are filtered to
 GLOBAL_TIMESTAMP = "'2023-01-02T00:00:00'"
 
 

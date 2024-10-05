@@ -6,11 +6,37 @@ sources:
     schema: mta
     tables:
       - name: stations
+        description: "{{ doc('stations')}}"
         columns:
-          - name: gtfs_stop_id
+          - name: "gtfs_stop_id"
+            description: "{{ doc('gtfs_stop_id')}}"
             tests:
               - unique
               - not_null
+          - name: "station_id"
+            description: "{{ doc('station_id')}}"
+            tests:
+              - not_null
+          - name: "complex_id"
+            description: "{{ doc('complex_id')}}"
+            tests:
+              - not_null
+          - name: "line"
+            description: "{{ doc('line')}}"
+          - name: "stop_name"
+            description: "{{ doc('stop_name')}}"
+          - name: "borough"
+            description: "{{ doc('borough')}}"
+          - name: "gtfs_latitude"
+            description: "{{ doc('gtfs_latitude')}}"
+          - name: "gtfs_longitude"
+            description: "{{ doc('gtfs_longitude')}}"
+          - name: "ada"
+            description: "{{ doc('ada')}}"
+          - name: "ada_northbound"
+            description: "{{ doc('ada_northbound')}}"
+          - name: "ada_southbound"
+            description: "{{ doc('ada_southbound')}}"
       - name: reduced_fare
       - name: hourly_ridership_20230102
       - name: origin_destination_20230102
