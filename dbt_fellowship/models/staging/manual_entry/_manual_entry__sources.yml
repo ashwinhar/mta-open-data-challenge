@@ -1,0 +1,8 @@
+version: 2
+
+sources: 
+  - name: manual_entry
+    database: mta_dev
+    schema: manual_entry
+    tables:
+      - name: nearest_ada_stations
