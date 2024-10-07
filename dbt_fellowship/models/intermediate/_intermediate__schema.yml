@@ -1,0 +1,5 @@
+version: 2
+models:
+  - name: int_hourly_ridership_timestamp_parts
+    description: "{{ doc('int_hourly_ridership_timestamp_parts') }}"
+  - name: int_hourly_ridership_filteraggregate
