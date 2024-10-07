@@ -38,7 +38,7 @@ sources:
           - name: "ada_southbound"
             description: "{{ doc('ada_southbound')}}"
       - name: reduced_fare
-      - name: hourly_ridership_20230102
+      - name: hourly_ridership
         description: "{{ doc('hourly_ridership')}}"
         columns:
           - name: "transit_timestamp"
@@ -57,7 +57,7 @@ sources:
             description: "{{doc('ridership')}}"
           - name: "transfers"
             description: "{{doc('transfers')}}"
-      - name: origin_destination_20230102
+      - name: origin_destination
         description: "{{doc('origin_destination')}}"
         columns: 
         - name: month

@@ -1,1 +1,0 @@
-select * from {{ref ('stg_origin_destination_20230102')}}

@@ -1,1 +1,0 @@
-select * from {{ref('stg_hourly_ridership_20230102')}}

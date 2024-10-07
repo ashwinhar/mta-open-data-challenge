@@ -8,4 +8,4 @@ SELECT
    ,destination_station_complex_id                  destination_station_complex_id
    ,destination_station_complex_name                destination_station_complex_name
    ,CAST(estimated_average_ridership AS NUMERIC)    estimated_average_ridership
-FROM {{source ('mta', 'origin_destination_20230102')}}
+FROM {{source ('mta', 'origin_destination')}}
