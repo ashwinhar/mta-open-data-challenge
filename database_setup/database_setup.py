@@ -3,43 +3,41 @@ import duckdb
 import pandas as pd
 from sodapy import Socrata
 import config
+import mta_dataset as mta
 
 
 # TODO: Allow multiple restrictions to be passed if the API allows
 
 
 def extract_dataset(dataset_code: str,
-                    restriction_type: str = None,
-                    restriction: str = None,
-                    limit: int = None
+                    where_clause: str = None
                     ) -> pd.DataFrame:
     """
     Extract dataset via API connection to NY Open Data Program
 
     Parameters:
         dataset_code     - A dataset code from the NY Open Data Program
-        restriction_type - API calls can be restricted. Column that you want to filter
-        restriction      - The value that you want to filter to
+        where_clause     - API calls can be restricted. Defines the filter. 
 
     Returns: 
         pd.Dataframe - Results returned from the API call 
     """
+
+    limit = 100000000  # Limit records on API call
 
     client = Socrata("data.ny.gov",
                      config.NY_OPEN_DATA_API_TOKEN,
                      username=config.NY_OPEN_DATA_USERNAME,
                      password=config.NY_OPEN_DATA_PASSWORD)
 
-    if restriction_type:
+    if where_clause:
         results = client.get(dataset_code,
-                             where=f"{restriction_type} = {restriction}",
+                             where=where_clause,
                              limit=limit)
     else:
         results = client.get(dataset_code, limit=limit)
 
-    records_df = pd.DataFrame.from_records(results)
-
-    return records_df
+    return pd.DataFrame.from_records(results)
 
 
 def get_database_connection(database_path: str) -> duckdb.DuckDBPyConnection:
@@ -67,8 +65,24 @@ def create_table(db_conn: duckdb.DuckDBPyConnection,
 
     """
     # TODO: Create support for full refresh
-    statement = f"CREATE TABLE {
+    statement = f"CREATE TABLE IF NOT EXISTS {
         table_name} AS SELECT * FROM results_dataframe"
+    db_conn.sql(statement)
+
+
+def drop_table(db_conn: duckdb.DuckDBPyConnection,
+               identifier: str
+               ) -> None:
+    """
+    Drop table in local duckdb file
+
+    Params: 
+        conn - Connection to local DuckDB database. Typically returned by get_database_connection()
+        identifier - Database object to drop
+
+    """
+    # TODO: Create support for full refresh
+    statement = f"DROP TABLE IF EXISTS {identifier}"
     db_conn.sql(statement)
 
 
@@ -109,47 +123,47 @@ def table_exists(db_conn: duckdb.DuckDBPyConnection, schema_name, table_name) ->
     return result is not None
 
 
-if __name__ == "__main__":
+def new_create_table(conn, mta_dataset: mta.MTADataset, overwrite=False):
+    table_exists_flag = table_exists(
+        conn, mta_dataset.schema, mta_dataset.table_name)
 
-    # TODO: All these table definitions should be pulled out into their own objects
+    if not table_exists_flag or overwrite:
+        try:
+            print(f"Starting extract for {mta_dataset.table_name}")
+            df = extract_dataset(
+                mta_dataset.code, mta_dataset.default_where_clause, )
+            print(f"Extract successful")
+            print("Creating table in database")
+            drop_table(conn, mta_dataset.identifier)
+            create_table(conn, df, mta_dataset.identifier)
+        except Exception as e:
+            print("Extract failed, exception message as follows")
+            print(e)
+
+
+def default_setup(overwrite=False) -> None:
+    """
+    Runs default setup based on each dataset instance in mta_dataset, as well as all manual_entry tables
+
+    Params:
+        overwrite (bool): If set to True, drops existing tables and creates new ones
+    """
 
     with get_database_connection(config.DEV_DATABASE) as conn:
-        timestamp = "'2023-01-02T00:00:00'"
 
-        create_schema(conn, config.MTA_SCHEMA)
+        # Create stations table
+        stations = mta.Stations()
+        new_create_table(conn, stations, overwrite)
 
-        # Build origin destination table restricted to a single day (defined by timestamp above)
-        origin_destination_table_name = "origin_destination_20230102"
-        if not table_exists(conn, config.MTA_SCHEMA, origin_destination_table_name):
-            origin_destination_df = extract_dataset(config.MTA_CODE_ORIGIN_DESTINATION_2023,
-                                                    restriction_type="timestamp",
-                                                    restriction=timestamp,
-                                                    limit=1000000)
-            create_table(conn, origin_destination_df,
-                         # TODO: This is bad design, we need to pull this out into a variable
-                         f"mta.origin_destination_20230102")
+        # Create hourly_ridershipt table
+        hourly_ridership = mta.HourlyRidership()
+        new_create_table(conn, hourly_ridership, overwrite)
 
-        # Build stations table
-        stations_table_name = "stations"
-        if not table_exists(conn, config.MTA_SCHEMA, stations_table_name):
-            stations_df = extract_dataset(config.MTA_CODE_STATIONS,
-                                          limit=10000000)
-            create_table(conn, stations_df, f"mta.stations")
+        # Create origin_destination table
+        origin_destination = mta.OriginDestination()
+        new_create_table(conn, origin_destination, overwrite)
 
-        # Build reduced fare table
-        reduced_fare_table_name = "reduced_fare"
-        if not table_exists(conn, config.MTA_SCHEMA, reduced_fare_table_name):
-            reduced_fare_df = extract_dataset(config.MTA_CODE_REDUCED_FARE,
-                                              limit=10000000)
-            create_table(conn, reduced_fare_df, f"mta.reduced_fare")
 
-        hourly_ridership_table_name = "hourly_ridership_20230102"
-        if not table_exists(conn, config.MTA_SCHEMA, hourly_ridership_table_name):
-            hourly_ridership_20230102_df = extract_dataset(
-                config.MTA_CODE_HOURLY_RIDERSHIP,
-                restriction_type="transit_timestamp",
-                restriction=timestamp,
-                limit=10000000
-            )
-            create_table(conn, hourly_ridership_20230102_df,
-                         f"mta.hourly_ridership_20230102")
+if __name__ == "__main__":
+
+    default_setup()
