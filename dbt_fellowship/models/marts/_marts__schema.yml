@@ -2,5 +2,5 @@ version: 2
 
 models:
   - name: dim_stations
-  - name: fct_hourly_ridership
+  - name: fct_disability_ridership
   - name: fct_origin_destination
