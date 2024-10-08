@@ -13,7 +13,7 @@ Brings all lines in the complex and station names into a list.
 
 {% enddocs %}
 
-{% docs int_origin-destination_ada %}
+{% docs int_origin_destination_ada %}
 
 Filters origin and destination to all combinations where both `origin_station_complex_id` and
 `destination_station_complex_id` are in `int_ada_complexes.ada_complex_id`. In other words,

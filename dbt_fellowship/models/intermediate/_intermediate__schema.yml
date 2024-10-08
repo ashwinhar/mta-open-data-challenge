@@ -13,7 +13,7 @@ models:
       - name: line_list
         description: All lines that are serviced within the complex
   - name: int_origin_destination_ada
-    description: "{{doc('int_origin-destination_ada')}}"
+    description: "{{doc('int_origin_destination_ada')}}"
     columns: 
       - name: origin_month
         description: "{{doc('origin_month')}}"
