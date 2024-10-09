@@ -6,7 +6,7 @@ SELECT
    ,transit_hour_of_day
    ,transit_day_of_week
    ,origin_station_complex_id
-   ,avg(ridership)			average_disability_ridership
+   ,sum(ridership)			    total_ada_ridership
 FROM cte 
 WHERE 
 	fare_class_category IN ('Metrocard - Seniors & Disability', 'OMNY - Seniors & Disability')
