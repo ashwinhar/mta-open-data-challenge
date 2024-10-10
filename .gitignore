@@ -16,3 +16,5 @@ logs/dbt.log
 dbt_fellowship/mta_data_dictionaries
 database_setup/to_do.txt
 dbt_fellowship/models/staging/mta/to_do.txt
+travel_time/travel_time_sandbox.ipynb
+database_setup/duckdb_sandbox.ipynb
