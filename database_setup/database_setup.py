@@ -8,6 +8,9 @@ import mta_dataset as mta
 
 # TODO: Allow multiple restrictions to be passed if the API allows
 
+MANUAL_ENTRY_SCHEMA = 'manual_entry'
+MTA_SCHEMA = 'mta'
+
 
 def extract_dataset(dataset_code: str,
                     where_clause: str = None
@@ -65,7 +68,7 @@ def create_table(db_conn: duckdb.DuckDBPyConnection,
 
     """
     # TODO: Create support for full refresh
-    statement = f"CREATE TABLE IF NOT EXISTS {
+    statement = f"CREATE TABLE {
         table_name} AS SELECT * FROM results_dataframe"
     db_conn.sql(statement)
 
@@ -151,6 +154,10 @@ def default_setup(overwrite=False) -> None:
 
     with get_database_connection(config.DEV_DATABASE) as conn:
 
+        # Create necessary schemas if not exists
+        create_schema(conn, 'manual_entry')
+        create_schema(conn, 'mta')
+
         # Create stations table
         stations = mta.Stations()
         new_create_table(conn, stations, overwrite)
@@ -162,6 +169,19 @@ def default_setup(overwrite=False) -> None:
         # Create origin_destination table
         origin_destination = mta.OriginDestination()
         new_create_table(conn, origin_destination, overwrite)
+
+        # Create manual entry nearest_ada_stations table
+        nearest_ada_stations_df = pd.read_csv(
+            '/Users/ashwin/Desktop/fellowship-capstone/database_setup/nearest_ada_stations.csv')
+        if not table_exists(conn, MANUAL_ENTRY_SCHEMA, 'nearest_ada_stations') or overwrite:
+            create_table(conn, nearest_ada_stations_df, f'{
+                         MANUAL_ENTRY_SCHEMA}.nearest_ada_stations')
+
+        # Create manual entry travel_times table
+        travel_times_df = pd.read_csv('database_setup/results_async.csv')
+        if not table_exists(conn, MANUAL_ENTRY_SCHEMA, 'travel_times') or overwrite:
+            create_table(conn, travel_times_df, f'{
+                         MANUAL_ENTRY_SCHEMA}.travel_times')
 
 
 if __name__ == "__main__":

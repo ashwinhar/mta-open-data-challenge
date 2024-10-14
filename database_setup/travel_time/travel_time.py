@@ -104,4 +104,5 @@ if __name__ == "__main__":
     new_df = asyncio.run(process_all_rows(sdk, df_latlongs, Walking()))
     full_df = asyncio.run(process_all_rows(
         sdk, df_latlongs, PublicTransport(type='train')))
-    new_df.to_csv('results_async.csv')
+    new_df.to_csv(
+        '/Users/ashwin/Desktop/fellowship-capstone/database_setup/results_async.csv')
