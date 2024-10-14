@@ -1,0 +1,9 @@
+version: 2
+
+macros:
+  - name: get_day_of_week
+    description: Simply yields a "day_of_week" (Monday, Tuesday, etc) from a timestamp. Uses DuckDB's datepart function.
+    arguments:
+      - name: timestamp
+        type: timestamp
+        description: The timestamp that you want to extract day_of_week from. 
