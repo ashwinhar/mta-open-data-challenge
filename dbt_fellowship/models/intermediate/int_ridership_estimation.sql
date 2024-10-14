@@ -3,7 +3,7 @@
 WITH base AS (
     SELECT
         od.*,
-        hr.total_ada_ridership
+        hr.total_ada_ridership*od.proportion_from_origin    estimated_ada_ridership
     FROM {{ref("int_origin_destination_ada")}}                  od
     LEFT JOIN {{ref("int_hourly_ridership_filteraggregate")}}   hr
     ON {{ composite_key_join_conditions('hr', 'od', keys) }}
