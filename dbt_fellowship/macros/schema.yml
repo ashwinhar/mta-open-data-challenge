@@ -7,3 +7,21 @@ macros:
       - name: timestamp
         type: timestamp
         description: The timestamp that you want to extract day_of_week from. 
+  - name: composite_key_join
+    description: "{{doc('composite_key_join')}}"
+    arguments:
+      - name: table_1
+        type: Some database object, typically a reference
+        description: First object part of the join
+      - name: table_2
+        type: Some database object, typically a reference
+        description: Second object part of the join
+      - name: keys
+        type: List
+        description: Typically the keys listed in the macro description
+  - name: composite_key_group_by
+    description: "{{doc('composite_key_group')}}"
+    arguments:
+      - name: keys
+        type: List
+        description: Typically the keys listed in the macro description

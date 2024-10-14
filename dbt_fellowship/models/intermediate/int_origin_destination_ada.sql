@@ -1,4 +1,4 @@
-
+-- Simply filters the origin_destination table to just rides where both the origin and destination are accessible
 WITH origin_destination_ada_CTE AS (
 	SELECT 
 		sod.*
