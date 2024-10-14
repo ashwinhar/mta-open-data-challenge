@@ -33,4 +33,6 @@ models:
       - name: destination_station_complex_name
         description: "{{doc('destination_station_complex_name')}}"
       - name: estimated_average_ridership
-        description:  "{{doc('estimated_average_ridership')}}"
+        description: "{{doc('estimated_average_ridership')}}"
+      - name: proportion_from_origin
+        description:  "{{doc('proportion_from_origin')}}"
