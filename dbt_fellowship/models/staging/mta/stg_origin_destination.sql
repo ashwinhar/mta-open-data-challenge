@@ -3,9 +3,9 @@ SELECT
    ,day_of_week                                         origin_day_of_week
    ,CAST(hour_of_day AS SMALLINT)                       origin_hour_of_day
    ,CAST(timestamp AS TIMESTAMP)                        origin_timestamp
-   ,CAST(origin_station_complex_id AS NUMERIC)          origin_station_complex_id
+   ,origin_station_complex_id                           origin_station_complex_id
    ,origin_station_complex_name                         origin_station_complex_name
-   ,CAST(destination_station_complex_id AS NUMERIC)     destination_station_complex_id
+   ,destination_station_complex_id                      destination_station_complex_id
    ,destination_station_complex_name                    destination_station_complex_name
    ,CAST(estimated_average_ridership AS NUMERIC)        estimated_average_ridership
 FROM {{source ('mta', 'origin_destination')}}

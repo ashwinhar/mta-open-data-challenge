@@ -1,7 +1,7 @@
 select
     gtfs_stop_id                        gtfs_stop_id
    ,CAST(station_id AS NUMERIC)         station_id
-   ,CAST(complex_id AS NUMERIC)         complex_id
+   ,complex_id                          complex_id
    ,line                                line
    ,stop_name                           stop_name
    ,borough                             borough
