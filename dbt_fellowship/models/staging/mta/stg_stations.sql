@@ -10,5 +10,4 @@ select
    ,CAST(ada AS TINYINT)                ada
    ,CAST(ada_northbound AS BOOLEAN)     ada_northbound
    ,CAST(ada_southbound AS BOOLEAN)     ada_southbound
-   ,georeference                        georeference
 from {{ source('mta','stations')}}

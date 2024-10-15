@@ -21,23 +21,44 @@ sources:
             description: "{{ doc('complex_id')}}"
             tests:
               - not_null
+          - name: "division"
+            description: "{{doc('division')}}"
           - name: "line"
             description: "{{ doc('line')}}"
           - name: "stop_name"
             description: "{{ doc('stop_name')}}"
           - name: "borough"
             description: "{{ doc('borough')}}"
+          - name: "cbd"
+            description: "{{doc('cbd')}}"
+          - name: "daytime_routes"
+            description: "{{doc('daytime_routes')}}"
+          - name: "structure"
+            description: "{{doc('structure')}}"
           - name: "gtfs_latitude"
             description: "{{ doc('gtfs_latitude')}}"
           - name: "gtfs_longitude"
             description: "{{ doc('gtfs_longitude')}}"
+          - name: "north_direction_label"
+            description: "{{doc('north_direction_label')}}"
+          - name: "south_direction_label"
+            description: "{{doc('south_direction_label')}}"
           - name: "ada"
             description: "{{ doc('ada')}}"
           - name: "ada_northbound"
             description: "{{ doc('ada_northbound')}}"
           - name: "ada_southbound"
             description: "{{ doc('ada_southbound')}}"
-      - name: reduced_fare
+          - name: "ada_notes"
+            description: "{{doc('ada_notes')}}"
+          - name: ":@computed_region_yamh_8v7k"
+            description: No documentation available at source
+          - name: ":@computed_region_wbg7_3whc"
+            description: No documentation available at source
+          - name: ":@computed_region_kjdx_g34t"
+            description: No documentation available at source
+          - name: "georeference"
+            description: No documentation available at source
       - name: hourly_ridership
         description: "{{ doc('hourly_ridership')}}"
         columns:
@@ -57,9 +78,20 @@ sources:
             description: "{{doc('ridership')}}"
           - name: "transfers"
             description: "{{doc('transfers')}}"
+          - name: "borough"
+            description: "{{doc('borough')}}"
+          - name: "latitude"
+            description: "{{doc('hourly_ridership_latitude')}}"
+          - name: "longitude"
+            description: "{{doc('hourly_ridership_longitude')}}"
+          - name: "georeference"
+            description: No documentation available at source
+          
       - name: origin_destination
         description: "{{doc('origin_destination')}}"
         columns: 
+        - name: year
+          description: "{{doc('origin_year')}}"
         - name: month
           description: "{{doc('origin_month')}}"
         - name: day_of_week
@@ -72,9 +104,21 @@ sources:
           description: "{{doc('origin_station_complex_id')}}"
         - name: origin_station_complex_name
           description: "{{doc('origin_station_complex_name')}}"
+        - name: origin_latitude
+          description: "{{doc('origin_latitude')}}"
+        - name: origin_longitude
+          description: "{{doc('origin_longitude')}}"
         - name: destination_station_complex_id
           description: "{{doc('destination_station_complex_id')}}"
         - name: destination_station_complex_name
           description: "{{doc('destination_station_complex_name')}}"
+        - name: destination_latitude
+          description: "{{doc('destination_latitude')}}"
+        - name: destination_longitude
+          description: "{{doc('destination_longitude')}}"
         - name: estimated_average_ridership
           description:  "{{doc('estimated_average_ridership')}}"
+        - name: origin_point
+          description: No documentation available at source
+        - name: destination_point
+          description: No documentation available at source

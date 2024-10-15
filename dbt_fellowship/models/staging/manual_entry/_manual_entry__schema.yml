@@ -14,11 +14,11 @@ models:
         description: "{{ doc('planned_ada_station_name')}}"
       - name: northbound_nearest_complex_id
         description: "{{ doc('northbound_nearest_complex_id')}}"
-      - name: northbound_nearest_station_name
+      - name: northbound_nearest_stop_name
         description: "{{ doc('northbound_nearest_station_name')}}"
       - name: southbound_nearest_complex_id
         description: "{{ doc('southbound_nearest_complex_id')}}"
-      - name: southbound_nearest_station_name
+      - name: southbound_nearest_stop_name
         description: "{{ doc('southbound_nearest_station_name')}}"
 
 
