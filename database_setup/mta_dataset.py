@@ -8,6 +8,9 @@ GLOBAL_TIMESTAMP_END = "'2023-01-04T00:00:00'"
 
 @dataclass
 class MTADataset:
+    """
+    Class definition for datasets part of MTA Open Data Program. 
+    """
     code: str                   # The dataset code passed to the Socrata API
     table_name: str             # The database object name
     default_where_clause: str   # How the table is filtered by default
@@ -23,6 +26,11 @@ class MTADataset:
 
 @dataclass
 class Stations(MTADataset):
+    """
+    Subway Stations table is used in this project. 
+
+    URL: https://data.ny.gov/Transportation/MTA-Subway-Stations/39hk-dx4f/about_data
+    """
     code = "39hk-dx4f"
     table_name = "stations"
     default_where_clause = None
@@ -33,6 +41,11 @@ class Stations(MTADataset):
 
 @dataclass
 class HourlyRidership(MTADataset):
+    """
+    Hourly Ridership is used in this project. 
+
+    URL: https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data
+    """
     code = "wujg-7c2s"
     table_name = "hourly_ridership"
     default_where_clause = f"transit_timestamp between {
@@ -44,6 +57,11 @@ class HourlyRidership(MTADataset):
 
 @dataclass
 class OriginDestination(MTADataset):
+    """
+    Origin Destination is used in this project 
+
+    https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-2/uhf3-t34z/about_data
+    """
     code = "uhf3-t34z"
     table_name = "origin_destination"
     default_where_clause = f"timestamp between {

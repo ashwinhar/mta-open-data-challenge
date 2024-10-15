@@ -5,11 +5,12 @@ from sodapy import Socrata
 import config
 import mta_dataset as mta
 
-
-# TODO: Allow multiple restrictions to be passed if the API allows
-
 MANUAL_ENTRY_SCHEMA = 'manual_entry'
-MTA_SCHEMA = 'mta'
+
+##################### USER TO REPLACE WITH APPROPRIATE FILE PATHS ###########################
+NEAREST_ADA_STATIONS_PATH = '/Users/ashwin/Desktop/fellowship-capstone/database_setup/nearest_ada_stations.csv'
+TRAVEL_TIMES_PATH = 'database_setup/results_async.csv'
+#############################################################################################
 
 
 def extract_dataset(dataset_code: str,
@@ -19,7 +20,7 @@ def extract_dataset(dataset_code: str,
     Extract dataset via API connection to NY Open Data Program
 
     Parameters:
-        dataset_code     - A dataset code from the NY Open Data Program
+        dataset_code     - A dataset code from the NY Open Data Program. Examples can be found in mta_dataset.py
         where_clause     - API calls can be restricted. Defines the filter. 
 
     Returns: 
@@ -60,14 +61,14 @@ def create_table(db_conn: duckdb.DuckDBPyConnection,
                  table_name: str
                  ) -> None:
     """
-    Create table in local duckdb file
+    Create table in local DuckDB database
 
     Params: 
-        conn - Connection to local DuckDB database. Typically returned by get_database_connection()
+        db_conn - Connection to local DuckDB database. Typically returned by get_database_connection()
         results_dataframe - Dataframe to create. Typically returned by extract_dataset()
+        table_name - Full database object identifier
 
     """
-    # TODO: Create support for full refresh
     statement = f"CREATE TABLE {
         table_name} AS SELECT * FROM results_dataframe"
     db_conn.sql(statement)
@@ -77,14 +78,13 @@ def drop_table(db_conn: duckdb.DuckDBPyConnection,
                identifier: str
                ) -> None:
     """
-    Drop table in local duckdb file
+    Drop table if exists in local duckdb file
 
     Params: 
-        conn - Connection to local DuckDB database. Typically returned by get_database_connection()
+        db_conn - Connection to local DuckDB database. Typically returned by get_database_connection()
         identifier - Database object to drop
 
     """
-    # TODO: Create support for full refresh
     statement = f"DROP TABLE IF EXISTS {identifier}"
     db_conn.sql(statement)
 
@@ -126,7 +126,16 @@ def table_exists(db_conn: duckdb.DuckDBPyConnection, schema_name, table_name) ->
     return result is not None
 
 
-def new_create_table(conn, mta_dataset: mta.MTADataset, overwrite=False):
+def new_create_table(conn: duckdb.DuckDBPyConnection, mta_dataset: mta.MTADataset, overwrite=False) -> None:
+    """
+    Full EL process from NY Open Dataset to local database
+
+    Params:
+        conn: Connection to local DuckDB database. Typically returned by get_database_connection()
+        mta_dataset: Instance of MTADataset dataclass. Dataset to extract from NY Open Data Program
+        overwrite (bool): If True, then database object at mta_dataset.identifier is dropped and created fresh
+
+    """
     table_exists_flag = table_exists(
         conn, mta_dataset.schema, mta_dataset.table_name)
 
@@ -135,7 +144,7 @@ def new_create_table(conn, mta_dataset: mta.MTADataset, overwrite=False):
             print(f"Starting extract for {mta_dataset.table_name}")
             df = extract_dataset(
                 mta_dataset.code, mta_dataset.default_where_clause, )
-            print(f"Extract successful")
+            print("Extract successful")
             print("Creating table in database")
             drop_table(conn, mta_dataset.identifier)
             create_table(conn, df, mta_dataset.identifier)
@@ -155,8 +164,8 @@ def default_setup(overwrite=False) -> None:
     with get_database_connection(config.DEV_DATABASE) as conn:
 
         # Create necessary schemas if not exists
-        create_schema(conn, 'manual_entry')
-        create_schema(conn, 'mta')
+        create_schema(conn, MANUAL_ENTRY_SCHEMA)
+        create_schema(conn, config.MTA_SCHEMA)
 
         # Create stations table
         stations = mta.Stations()
@@ -170,15 +179,15 @@ def default_setup(overwrite=False) -> None:
         origin_destination = mta.OriginDestination()
         new_create_table(conn, origin_destination, overwrite)
 
-        # Create manual entry nearest_ada_stations table
-        nearest_ada_stations_df = pd.read_csv(
-            '/Users/ashwin/Desktop/fellowship-capstone/database_setup/nearest_ada_stations.csv')
+        # Create manual entry nearest_ada_stations table. Manual entry tables have a different flow.
+        # Note that nearest_ada_stations was built by hand, not via API request
+        nearest_ada_stations_df = pd.read_csv(NEAREST_ADA_STATIONS_PATH)
         if not table_exists(conn, MANUAL_ENTRY_SCHEMA, 'nearest_ada_stations') or overwrite:
             create_table(conn, nearest_ada_stations_df, f'{
                          MANUAL_ENTRY_SCHEMA}.nearest_ada_stations')
 
         # Create manual entry travel_times table
-        travel_times_df = pd.read_csv('database_setup/results_async.csv')
+        travel_times_df = pd.read_csv()
         if not table_exists(conn, MANUAL_ENTRY_SCHEMA, 'travel_times') or overwrite:
             create_table(conn, travel_times_df, f'{
                          MANUAL_ENTRY_SCHEMA}.travel_times')

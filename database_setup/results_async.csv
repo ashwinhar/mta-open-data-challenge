@@ -1,59 +1,59 @@
-,Unnamed: 0,mta_sort_order,planned_ada_complex_id,planned_ada_station_name,planned_ada_complex_latitude,planned_ada_complex_longitude,existing_ada_complex_id,existing_ada_stop_name,existing_ada_complex_latitude,existing_ada_complex_longitude,walking_time_sec,train_time_sec,
-0,0,6,287,Flushing Av / Crosstown (G line),40.7,-73.95,629,Metropolitan Av/Lorimer St (G),40.714,-73.95,1419,751,
-1,1,3,90,"Van Siclen Av / Jamaica (J, Z lines)",40.678,-73.892,98,Flushing Av,40.7,-73.941,4219,1279,
-2,2,15,354,"Sterling St / Nostrand (2, 5 lines)",40.663,-73.951,356,Church Av,40.651,-73.95,1158,334,
-3,3,12,266,"Elmhurst Av / Queens Boulevard ( M, R lines)",40.742,-73.882,616,Jackson Heights/Roosevelt Av,40.747,-73.891,884,373,
-4,4,6,287,Flushing Av / Crosstown (G line),40.7,-73.95,240,7 Av (G),40.666,-73.98,4516,1666,
-5,5,15,354,"Sterling St / Nostrand (2, 5 lines)",40.663,-73.951,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,1442,953,
-6,6,12,266,"Elmhurst Av / Queens Boulevard ( M, R lines)",40.742,-73.882,,,,,,,
-7,7,3,90,"Van Siclen Av / Jamaica (J, Z lines)",40.678,-73.892,,,,,,,
-8,8,11,353,"President St / Nostrand ( 2 ,5 lines)",40.668,-73.951,356,Church Av,40.651,-73.95,1624,391,
-9,9,24,432,"Prospect Av / White Plains Road (2, 5 lines)",40.82,-73.902,434,3 Av - 149 St.,40.816,-73.918,1221,620,
-10,10,24,432,"Prospect Av / White Plains Road (2, 5 lines)",40.82,-73.902,430,Simpson St.,40.824,-73.893,745,526,
-11,11,11,353,"President St / Nostrand ( 2 ,5 lines)",40.668,-73.951,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,1060,754,
-12,12,20,207,Beach 36 St / Far Rockaway (A line),40.595,-73.768,209,Far Rockaway Mott Av.,40.604,-73.755,1467,1212,
-13,13,21,200,"Beach 90 St / Rockaway (A, S lines)",40.588,-73.814,204,Beach 67 St,40.591,-73.797,1223,2183,Error
-14,14,20,207,Beach 36 St / Far Rockaway (A line),40.595,-73.768,204,Beach 67 St,40.591,-73.797,2086,695,
-15,15,14,347,Saratoga Av / New Lots (3 line),40.661,-73.916,345,Crown Heights/Utica,40.669,-73.933,1648,761,
-16,16,13,154,"116 St / Eighth Avenue ( B, C lines)",40.805,-73.955,614,59 St Columbus Circle,40.768,-73.982,3674,771,
-17,17,10,343,Nostrand Av / Eastern Parkway (3 line),40.67,-73.95,345,Crown Heights/Utica Ave,40.669,-73.933,1160,857,
-18,18,16,439,"125 St / Lenox (2, 3 lines)",40.808,-73.945,310,96 St,40.794,-73.972,2729,757,
-19,19,13,154,"116 St / Eighth Avenue ( B, C lines)",40.805,-73.955,153,125 St,40.811,-73.952,656,369,
-20,20,7,288,Myrtle-Willoughby Avs / Crosstown (G line),40.695,-73.949,629,Metropolitan Av/Lorimer St (G),40.714,-73.95,1932,689,
-21,21,16,439,"125 St / Lenox (2, 3 lines)",40.808,-73.945,152,135 St,40.818,-73.948,1166,877,
-22,22,7,288,Myrtle-Willoughby Avs / Crosstown (G line),40.695,-73.949,240,7 Av (G),40.666,-73.98,4142,1432,
-23,23,10,343,Nostrand Av / Eastern Parkway (3 line),40.67,-73.95,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,967,564,
-24,24,21,200,"Beach 90 St / Rockaway (A, S lines)",40.588,-73.814,,,,,,,
-25,25,14,347,Saratoga Av / New Lots (3 line),40.661,-73.916,,,,,,,
-26,26,4,80,"121 St / Jamaica (J, Z lines)",40.7,-73.828,98,Flushing Av,40.7,-73.941,7915,2250,
-27,27,8,150,155 St / Eight Avenue (C line),40.831,-73.942,153,125 St,40.811,-73.952,2000,839,
-28,28,22,325,Canal St / Broadway - 7 Av (1 line),40.723,-74.006,327,Chambers St,40.715,-74.009,817,539,
-29,29,9,369,Elder Av / Pelham (6 line),40.829,-73.879,371,Hunts Point Av,40.821,-73.891,1263,541,
-30,30,5,427,"W Farms Sq - E Tremont Av / White Plains Rd (2, 5 lines)",40.84,-73.88,430,Simpson St,40.824,-73.893,1746,611,
-31,31,25,443,Baychester Av / Dyre (5 line),40.879,-73.839,444,Gun Hill Rd.,40.87,-73.846,1522,1494,
-32,32,18,86,Cypress Hills / Jamaica (J line),40.69,-73.873,98,Flushing Av.,40.7,-73.941,5171,1561,
-33,33,8,150,155 St / Eight Avenue (C line),40.831,-73.942,605,168 St,40.841,-73.94,1089,662,
-34,34,17,238,"Smith - 9th Sts / Sixth Av (F, G lines)",40.674,-73.996,636,Jay St. Metro Tech,40.692,-73.986,2000,805,
-35,35,22,325,Canal St / Broadway - 7 Av (1 line),40.723,-74.006,318,34 St Penn Station,40.75,-73.991,2856,869,
-36,36,5,427,"W Farms Sq - E Tremont Av / White Plains Rd (2, 5 lines)",40.84,-73.88,424,Pelham Pkway,40.857,-73.868,1850,736,
-37,37,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,577,
-38,38,26,214,"182 - 183 Sts / Concourse (B, D lines)",40.856,-73.901,215,Tremont Av,40.85,-73.905,653,653,
-39,39,2,320,23 St / Broadway - 7 Av (1 line),40.744,-73.996,327,Chambers St,40.715,-74.009,2981,879,
-40,40,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,565,
-41,41,2,320,23 St / Broadway - 7 Av (1 line),40.744,-73.996,318,34 St Penn Station,40.75,-73.991,711,511,
-42,42,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,557,
-43,43,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,486,
-44,44,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,482,
-45,45,23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,478,
-46,46,19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,240,7 Av ,40.666,-73.98,826,702,
-47,47,17,238,"Smith - 9th Sts / Sixth Av (F, G lines)",40.674,-73.996,240,7 Av (G),40.666,-73.98,1337,604,
-48,48,19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,240,7 Av ,40.666,-73.98,826,695,
-49,49,19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,617,Atlantic Av Barclays Ctr,40.684,-73.979,1402,773,
-50,50,19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,617,Atlantic Av Barclays Ctr,40.684,-73.979,1402,769,
-51,51,26,214,"182 - 183 Sts / Concourse (B, D lines)",40.856,-73.901,212,Kingsbridge Rd,40.867,-73.894,1095,762,
-52,52,18,86,Cypress Hills / Jamaica (J line),40.69,-73.873,,,,,,,
-53,53,4,80,"121 St / Jamaica (J, Z lines)",40.7,-73.828,,,,,,,
-54,54,9,369,Elder Av / Pelham (6 line),40.829,-73.879,,,,,,,
-55,55,25,443,Baychester Av / Dyre (5 line),40.879,-73.839,,,,,,,
-56,56,1,441,"Central Park North (110 St) / Lenox (2, 3 lines)",40.799,-73.952,310,96 St,40.794,-73.972,1763,460,
-57,57,1,441,"Central Park North (110 St) / Lenox (2, 3 lines)",40.799,-73.952,438,135 St,40.814,-73.941,1616,426,
+mta_sort_order,planned_ada_complex_id,planned_ada_station_name,planned_ada_complex_latitude,planned_ada_complex_longitude,existing_ada_complex_id,existing_ada_stop_name,existing_ada_complex_latitude,existing_ada_complex_longitude,walking_time_sec,train_time_sec
+6,287,Flushing Av / Crosstown (G line),40.7,-73.95,629,Metropolitan Av/Lorimer St (G),40.714,-73.95,1419,751
+3,90,"Van Siclen Av / Jamaica (J, Z lines)",40.678,-73.892,98,Flushing Av,40.7,-73.941,4219,1279
+15,354,"Sterling St / Nostrand (2, 5 lines)",40.663,-73.951,356,Church Av,40.651,-73.95,1158,334
+12,266,"Elmhurst Av / Queens Boulevard ( M, R lines)",40.742,-73.882,616,Jackson Heights/Roosevelt Av,40.747,-73.891,884,373
+6,287,Flushing Av / Crosstown (G line),40.7,-73.95,240,7 Av (G),40.666,-73.98,4516,1666
+15,354,"Sterling St / Nostrand (2, 5 lines)",40.663,-73.951,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,1442,953
+12,266,"Elmhurst Av / Queens Boulevard ( M, R lines)",40.742,-73.882,,,,,,
+3,90,"Van Siclen Av / Jamaica (J, Z lines)",40.678,-73.892,,,,,,
+11,353,"President St / Nostrand ( 2 ,5 lines)",40.668,-73.951,356,Church Av,40.651,-73.95,1624,391
+24,432,"Prospect Av / White Plains Road (2, 5 lines)",40.82,-73.902,434,3 Av - 149 St.,40.816,-73.918,1221,620
+24,432,"Prospect Av / White Plains Road (2, 5 lines)",40.82,-73.902,430,Simpson St.,40.824,-73.893,745,526
+11,353,"President St / Nostrand ( 2 ,5 lines)",40.668,-73.951,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,1060,754
+20,207,Beach 36 St / Far Rockaway (A line),40.595,-73.768,209,Far Rockaway Mott Av.,40.604,-73.755,1467,1212
+21,200,"Beach 90 St / Rockaway (A, S lines)",40.588,-73.814,204,Beach 67 St,40.591,-73.797,1223,2183
+20,207,Beach 36 St / Far Rockaway (A line),40.595,-73.768,204,Beach 67 St,40.591,-73.797,2086,695
+14,347,Saratoga Av / New Lots (3 line),40.661,-73.916,345,Crown Heights/Utica,40.669,-73.933,1648,761
+13,154,"116 St / Eighth Avenue ( B, C lines)",40.805,-73.955,614,59 St Columbus Circle,40.768,-73.982,3674,771
+10,343,Nostrand Av / Eastern Parkway (3 line),40.67,-73.95,345,Crown Heights/Utica Ave,40.669,-73.933,1160,857
+16,439,"125 St / Lenox (2, 3 lines)",40.808,-73.945,310,96 St,40.794,-73.972,2729,757
+13,154,"116 St / Eighth Avenue ( B, C lines)",40.805,-73.955,153,125 St,40.811,-73.952,656,369
+7,288,Myrtle-Willoughby Avs / Crosstown (G line),40.695,-73.949,629,Metropolitan Av/Lorimer St (G),40.714,-73.95,1932,689
+16,439,"125 St / Lenox (2, 3 lines)",40.808,-73.945,152,135 St,40.818,-73.948,1166,877
+7,288,Myrtle-Willoughby Avs / Crosstown (G line),40.695,-73.949,240,7 Av (G),40.666,-73.98,4142,1432
+10,343,Nostrand Av / Eastern Parkway (3 line),40.67,-73.95,341,Eastern Parkway/Brooklyn Museum,40.672,-73.964,967,564
+21,200,"Beach 90 St / Rockaway (A, S lines)",40.588,-73.814,,,,,,
+14,347,Saratoga Av / New Lots (3 line),40.661,-73.916,,,,,,
+4,80,"121 St / Jamaica (J, Z lines)",40.7,-73.828,98,Flushing Av,40.7,-73.941,7915,2250
+8,150,155 St / Eight Avenue (C line),40.831,-73.942,153,125 St,40.811,-73.952,2000,839
+22,325,Canal St / Broadway - 7 Av (1 line),40.723,-74.006,327,Chambers St,40.715,-74.009,817,539
+9,369,Elder Av / Pelham (6 line),40.829,-73.879,371,Hunts Point Av,40.821,-73.891,1263,541
+5,427,"W Farms Sq - E Tremont Av / White Plains Rd (2, 5 lines)",40.84,-73.88,430,Simpson St,40.824,-73.893,1746,611
+25,443,Baychester Av / Dyre (5 line),40.879,-73.839,444,Gun Hill Rd.,40.87,-73.846,1522,1494
+18,86,Cypress Hills / Jamaica (J line),40.69,-73.873,98,Flushing Av.,40.7,-73.941,5171,1561
+8,150,155 St / Eight Avenue (C line),40.831,-73.942,605,168 St,40.841,-73.94,1089,662
+17,238,"Smith - 9th Sts / Sixth Av (F, G lines)",40.674,-73.996,636,Jay St. Metro Tech,40.692,-73.986,2000,805
+22,325,Canal St / Broadway - 7 Av (1 line),40.723,-74.006,318,34 St Penn Station,40.75,-73.991,2856,869
+5,427,"W Farms Sq - E Tremont Av / White Plains Rd (2, 5 lines)",40.84,-73.88,424,Pelham Pkway,40.857,-73.868,1850,736
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,577
+26,214,"182 - 183 Sts / Concourse (B, D lines)",40.856,-73.901,215,Tremont Av,40.85,-73.905,653,653
+2,320,23 St / Broadway - 7 Av (1 line),40.744,-73.996,327,Chambers St,40.715,-74.009,2981,879
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,565
+2,320,23 St / Broadway - 7 Av (1 line),40.744,-73.996,318,34 St Penn Station,40.75,-73.991,711,511
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,622,"Chambers St, Brooklyn bridge City Hall",40.713,-74.003,762,557
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,486
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,482
+23,623,"Canal St Complex (3 Stations, J, N, Q, R, W lines)",40.72,-74.002,602,14 St - Union Sq,40.736,-73.991,1754,478
+19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,240,7 Av,40.666,-73.98,826,702
+17,238,"Smith - 9th Sts / Sixth Av (F, G lines)",40.674,-73.996,240,7 Av (G),40.666,-73.98,1337,604
+19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,240,7 Av,40.666,-73.98,826,695
+19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,617,Atlantic Av Barclays Ctr,40.684,-73.979,1402,773
+19,608,"4 Av - 9 St Complex (2 Stations) (F, G, R lines)",40.671,-73.988,617,Atlantic Av Barclays Ctr,40.684,-73.979,1402,769
+26,214,"182 - 183 Sts / Concourse (B, D lines)",40.856,-73.901,212,Kingsbridge Rd,40.867,-73.894,1095,762
+18,86,Cypress Hills / Jamaica (J line),40.69,-73.873,,,,,,
+4,80,"121 St / Jamaica (J, Z lines)",40.7,-73.828,,,,,,
+9,369,Elder Av / Pelham (6 line),40.829,-73.879,,,,,,
+25,443,Baychester Av / Dyre (5 line),40.879,-73.839,,,,,,
+1,441,"Central Park North (110 St) / Lenox (2, 3 lines)",40.799,-73.952,310,96 St,40.794,-73.972,1763,460
+1,441,"Central Park North (110 St) / Lenox (2, 3 lines)",40.799,-73.952,438,135 St,40.814,-73.941,1616,426
