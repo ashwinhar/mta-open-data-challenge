@@ -59,7 +59,47 @@ The nearest at least partially accessible complex (at least one record in `mta.s
 
 
 {% docs southbound_nearest_station_name %}
-
 The station that the complex belongs to, again written by looking at [this map](https://new.mta.info/node/5346). It may not *precisely* match the official station name, but it should be close enough to understand which station the corresponding `complex_id` is referencing. Plus, using `mta.stations`, you can get the actual latitude and longitude of the station.
+
+{% enddocs %}
+
+
+{% docs travel_times %}
+This table contains travel time information between two locations, both walking and train travel time. The TravelTimeAPI was used to get these numbers. 
+
+{% enddocs %}
+
+
+{% docs complex_latitude %}
+The latitude of a station part of the complex (pulled from `mta.stations`). The complex is assumed to be small enough such that any station's latitude is close enough to the complex centroid.
+
+{% enddocs %}
+
+
+{% docs complex_longitude %}
+The longitude of a station part of the complex (pulled from `mta.stations`). The complex is assumed to be small enough such that any station's longitude is close enough to the complex centroid
+
+{% enddocs %}
+
+
+{% docs existing_ada_complex_id %}
+One of the nearest at least partially accessible complex (at least one record in `mta.stations` with `ada = 1`) in either the southbound or northbound direction. Inferred from [this map](https://new.mta.info/node/5346).
+
+{% enddocs %}
+
+
+{% docs existing_ada_stop_name %}
+Any stop in the complex. Should be close enough to understand what the `complex_id` is referencing. Plus, using `mta.stations`, you can get more information about all stops part of the `complex_id`.
+
+{% enddocs %}
+
+
+{% docs walking_time_sec %}
+The walking time in seconds between the two locations, based on the [TravelTimeAPI](https://docs.traveltime.com/api/overview/introduction)
+
+{% enddocs %}
+
+{% docs train_time_sec %}
+The train time in seconds between the two locations, based on the [TravelTimeAPI](https://docs.traveltime.com/api/overview/introduction)
 
 {% enddocs %}
