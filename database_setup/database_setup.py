@@ -187,7 +187,7 @@ def default_setup(overwrite=False) -> None:
                          MANUAL_ENTRY_SCHEMA}.nearest_ada_stations')
 
         # Create manual entry travel_times table
-        travel_times_df = pd.read_csv()
+        travel_times_df = pd.read_csv(TRAVEL_TIMES_PATH)
         if not table_exists(conn, MANUAL_ENTRY_SCHEMA, 'travel_times') or overwrite:
             create_table(conn, travel_times_df, f'{
                          MANUAL_ENTRY_SCHEMA}.travel_times')
