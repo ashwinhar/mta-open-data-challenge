@@ -1,18 +1,21 @@
-''' Module to use TravelTime API to get walking and public transit time'''
+''' Module to use TravelTime API to get walking and public transit time between two locations'''
 
 from traveltimepy import Location, Transportation, Walking, Coordinates, TravelTimeSdk, Property, FullRange, PublicTransport
-# Full setup
 import numpy as np
 import pandas as pd
 import asyncio
 from datetime import datetime
 from dataclasses import dataclass
+from database_setup.database_setup import TRAVEL_TIMES_PATH
+from database_setup import config
 
 
 @dataclass
 class StationGeography:
-    '''Simple way to store a station identifier (no tight definition around this) and a lat/long pair'''
-    station_id: str     # Any identifier for the station
+    """
+    Simple way to store a station identifier (no tight definition around this) and a lat/long pair
+    """
+    station_id: str     # Any identifier for the station. Can be stop_name, complex_name, station_name, or anything really.
     latitude: float
     longitude: float
 
@@ -25,9 +28,10 @@ async def time_filter_wrapper(sdk: TravelTimeSdk, origin: StationGeography, dest
     Parameters:
         sdk - Instance of TravelTimeSdk with app_id and api_key, which you can get for free
         origin - Instance of StationGeography, this is the origin of the trip
-        destination - Instnace of StationGeography, this is the destination of the trip
+        destination - Instance of StationGeography, this is the destination of the trip
         transport_type - Could pass any instance of Transportation.
-
+    Returns:
+        (int) - Travel time in seconds based on the transport_type passed
 
     """
     locations = [
@@ -61,13 +65,19 @@ async def time_filter_wrapper(sdk: TravelTimeSdk, origin: StationGeography, dest
     return travel_time
 
 
-async def process_all_rows(sdk: TravelTimeSdk, df: pd.DataFrame, transport_type: Transportation):
+async def process_all_rows(sdk: TravelTimeSdk, df: pd.DataFrame, transport_type: Transportation) -> pd.DataFrame:
     """
-    New attempt at running all rows in a dataframe
+    Iterate through a dataframe to get new dataframe with travel times
 
-    sdk: Instance of TravelTimeSdk
-    df: Dataframe in the specific latlong format from the data model
+    Parameters:
+        sdk - Instance of TravelTimeSdk
+        df - Dataframe in the specific latlong format from the data model. See latlongs.csv
+        transport_type - Any Transportation type, but typically Walking() or PublicTransport(type='train')
+    Returns: 
+        (pd.DataFrame) - New dataframe with added column. Either walking_time_sec or train_time_sec as of now
     """
+
+    # Define new column name in dataframe
     if transport_type == Walking():
         col_name = 'walking_time_sec'
     else:
@@ -83,8 +93,9 @@ async def process_all_rows(sdk: TravelTimeSdk, df: pd.DataFrame, transport_type:
         print(f"Processing row {index}")
         print(origin)
         print(destination)
+
+        # API will throw an error if either side is None
         if origin.latitude is not None and destination.latitude is not None:
-            # Will not work if either side is None
             travel_time_sec = await time_filter_wrapper(sdk, origin, destination, transport_type)
             print(f"{col_name} set to {travel_time_sec} for index = {index}")
             df.at[index, col_name] = travel_time_sec
@@ -93,16 +104,31 @@ async def process_all_rows(sdk: TravelTimeSdk, df: pd.DataFrame, transport_type:
 
     return df
 
-if __name__ == "__main__":
+
+def default_setup(sdk: TravelTimeSdk) -> None:
+    """
+    Default setup for results_async.csv for travel times
+
+    Parameters:
+        sdk - Instance of TravelTimeSDK
+    """
     df_latlongs = pd.read_csv(
         'travel_time/latlongs.csv').replace({np.nan: None})
 
-    sdk = TravelTimeSdk(app_id="87ebd830",
-                        api_key="a084a6856d76b7580d8390859bff3ac8")
-
-    # Running the async loop
+    # Running the async loop for walking time
     new_df = asyncio.run(process_all_rows(sdk, df_latlongs, Walking()))
+
+    # Running the async loop for train time
     full_df = asyncio.run(process_all_rows(
-        sdk, df_latlongs, PublicTransport(type='train')))
-    new_df.to_csv(
-        '/Users/ashwin/Desktop/fellowship-capstone/database_setup/results_async.csv')
+        sdk, new_df, PublicTransport(type='train')))
+
+    # Write to approrpiate path
+    full_df.to_csv(TRAVEL_TIMES_PATH)
+
+
+if __name__ == "__main__":
+
+    sdk = TravelTimeSdk(app_id=config.TRAVEL_TIME_APP_ID,
+                        api_key=config.TRAVEL_TIME_API_KEY)
+
+    default_setup(sdk)
