@@ -33,9 +33,13 @@ defines a ridership `proportion_from_origin`. See column-level documentation for
 
 
 {% docs int_hourly_ridership_aggregated %}
+Partitions the `transit_timestamp` column using DuckDB's `date_part` function such that we can eventually achieve the same grain as `fct_origin_destination`. Aggregates `hourly_ridership` into the same grain as `origin_destination` but instead of *averaging* the ridership it totals the ridership. Also, filters to only records where `fare_class_category` is either 'Metrocard - Seniors & Disability' or 'OMNY - Seniors & Disability'
 
-Partitions the `transit_timestamp` column using DuckDB's `date_part` function
-such that we can eventually achieve the same grain as `fct_origin_destination`. Aggregates `hourly_ridership` into the same grain as `origin_destination` but instead of *averaging* the ridership it totals the ridership. This way, we don't lose information.
+{% enddocs %}
+
+
+{% docs total_ada_ridership %}
+Sum of `ridership` from `stg_hourly_ridership`
 
 {% enddocs %}
 

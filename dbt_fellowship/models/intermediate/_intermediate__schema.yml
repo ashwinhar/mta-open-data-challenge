@@ -23,7 +23,20 @@ models:
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
       - name: gtfs_longitude
-        description: "{{doc('complex_gtfs_longitude')}}"
+        description: "{{doc('complex_gtfs_longitude ')}}"
+  - name: int_hourly_ridership_aggregated
+    description: "{{doc('int_hourly_ridership_aggregated')}}"
+    columns:
+      - name: origin_month
+        description: "{{doc('origin_month')}}"
+      - name: origin_day_of_week
+        description: "{{doc('origin_day_of_week')}}"
+      - name: origin_hour_of_day
+        description: "{{doc('origin_hour_of_day')}}"
+      - name: origin_station_complex_id
+        description: "{{doc('origin_station_complex_id')}}"
+      - name: total_ada_ridership 
+        description: "{{doc('total_ada_ridership')}}"
   - name: int_origin_destination_ada
     description: "{{doc('int_origin_destination_ada')}}"
     columns: 
