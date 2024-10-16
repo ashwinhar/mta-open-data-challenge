@@ -6,7 +6,9 @@
             "accessMode": "Read Only",
             "previewLimit": 50,
             "driver": "DuckDB",
-            "databaseFilePath": "/Users/Ashwin/Desktop/fellowship_capstone/dbt_fellowship/mta_dev.duckdb"
+            "databaseFilePath": "/Users/ashwin/Desktop/fellowship-capstone/dbt_fellowship/mta_dev.duckdb"
         }
-    ]
+    ],
+    "dbt.enableNewLineagePanel": true,
+    "dbt.perspectiveTheme": "Pro Light"
 }
