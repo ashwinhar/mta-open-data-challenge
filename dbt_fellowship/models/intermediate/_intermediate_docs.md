@@ -56,3 +56,30 @@ destination and composite key. For example, if 20 of the riders above traveled t
 Central, the `proportion_from_origin` would be 0.2 (20%). 
 
 {% enddocs %}
+
+
+{% docs int_travel_times_aggregated %}
+In this model we are trying to find the average time loss from every *existing* ADA-accessible complex to all corresponding planned ADA complexes. For example, let's take 96 St. station (`complex_id = 310`). It is currently ADA-accessible, and would be the closest complex for the mobility-impaired to use if they want to get to either Central Park North (110 St)/Lenox or 125 St/Lenox. Using some toy data, we might see something like this: 
+
+| `existing_ada_complex` | `planned_ada_complex` | `walking_time_sec` | `train_time_sec` |
+|------------------------|-----------------------|--------------------|------------------|
+| 96 St.                 | Central Park North (110 St)/Lenox  | 2000  | 1000             | 
+| 96 St.                 | 125 St/Lenox          | 1000               | 500              | 
+
+Mobility-impaired people definitionally walk slower than the average. In a [NIMH study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5992037/), the walking speed is 20%-50% slower. Splitting the difference, we scale `walking_time_sec` up by 35%, take the difference with `train_time_sec`, and then average for each complex. Thus, we would get the following equation for the first record above:
+
+2000\*1.35 - 1000 = 1700
+
+In other words, from 96 St., it takes on average 1275 sec to get to planned ADA complexes. Ideally, we would use a weighted average based on real data in `mta.origin_destination`. For right now, we assume an even split. 
+
+{% enddocs %}
+
+{% docs list_closest_planned_stations %}
+All corresponding `planned_ada_station_name` values corresponding to the `existing_ada_complex_id` based on `stg_travel_times`.
+
+{% enddocs %}
+
+{% docs avg_travel_time_diff%}
+The average of the `travel_time_diff` (sec), where `travel_time_diff` is the difference between `walking_time_sec` and `train_time_sec`. 
+
+{% enddocs%}

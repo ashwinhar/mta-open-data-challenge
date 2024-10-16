@@ -23,7 +23,7 @@ models:
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
       - name: gtfs_longitude
-        description: "{{doc('complex_gtfs_longitude ')}}"
+        description: "{{doc('complex_gtfs_longitude')}}"
   - name: int_hourly_ridership_aggregated
     description: "{{doc('int_hourly_ridership_aggregated')}}"
     columns:
@@ -60,3 +60,12 @@ models:
         description: "{{doc('estimated_average_ridership')}}"
       - name: proportion_from_origin
         description:  "{{doc('proportion_from_origin')}}"
+  - name: int_travel_times_aggregated
+    description: "{{doc('int_travel_times_aggregated')}}"
+    columns:
+      - name: existing_ada_complex_id
+        description: "{{doc('existing_ada_complex_id')}}"
+      - name: list_closest_planned_stations
+        description: "{{doc('list_closest_planned_stations')}}"
+      - name: avg_travel_time_diff
+        description: "{{doc('avg_travel_time_diff')}}"
