@@ -1,10 +1,26 @@
 {% docs int_ada_complexes %}
-
 Filters to all complexes in `stg_stations` that have at least one record where `ada = 1`. 
 Brings all lines in the complex and station names into a list. 
 
 {% enddocs %}
 
+
+{% docs complex_gtfs_latitude %}
+The first latitude found from `stg_stations` for the given `complex_id`. We therefore assume that all stations within a certain complex are reasonably close enough together where we can pick any latitude and it doesn't matter. 
+
+{% enddocs %}
+
+
+{% docs complex_gtfs_longitude %}
+The first longitude found from `stg_stations` for the given `complex_id`. We therefore assume that all stations within a certain complex are reasonably close enough together where we can pick any longitude and it doesn't matter. 
+
+{% enddocs %}
+
+
+{% docs int_all_complexes %}
+Extracts all unique `complex_id` values with any (latitude,longitude) pair found in `stg_stations`
+
+{% enddocs %}
 
 {% docs int_origin_destination_ada %}
 

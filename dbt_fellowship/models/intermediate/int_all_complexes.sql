@@ -1,5 +1,5 @@
 SELECT 
-    complex_id						ada_complex_id
+    complex_id						complex_id
    ,FIRST(gtfs_latitude)            gtfs_latitude
    ,FIRST(gtfs_longitude)           gtfs_longitude
 FROM {{ref("stg_stations")}}

@@ -42,6 +42,6 @@ SELECT
    ,IAC_Existing.gtfs_longitude             existing_ada_complex_longitude
 FROM unioned_CTE				            U
 LEFT JOIN {{ref("int_all_complexes")}}		IAC_Planned
-	ON IAC_Planned.ada_complex_id = U.planned_ada_complex_id
+	ON IAC_Planned.complex_id = U.planned_ada_complex_id
 LEFT JOIN {{ref("int_all_complexes")}}		IAC_Existing
-	ON IAC_EXISTING.ada_complex_id = U.existing_ada_complex_id
+	ON IAC_EXISTING.complex_id = U.existing_ada_complex_id

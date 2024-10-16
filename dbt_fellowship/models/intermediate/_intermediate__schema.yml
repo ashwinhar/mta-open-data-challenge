@@ -11,6 +11,19 @@ models:
         description: All stops that are within the complex
       - name: line_list
         description: All lines that are serviced within the complex
+      - name: gtfs_latitude
+        description: "{{doc('complex_gtfs_latitude')}}"
+      - name: gtfs_longitude
+        description: "{{doc('complex_gtfs_longitude')}}"
+  - name: int_all_complexes
+    description: "{{doc('int_all_complexes')}}"
+    columns:
+      - name: complex_id
+        description: "{{doc('complex_id')}}"
+      - name: gtfs_latitude
+        description: "{{doc('complex_gtfs_latitude')}}"
+      - name: gtfs_longitude
+        description: "{{doc('complex_gtfs_longitude')}}"
   - name: int_origin_destination_ada
     description: "{{doc('int_origin_destination_ada')}}"
     columns: 
