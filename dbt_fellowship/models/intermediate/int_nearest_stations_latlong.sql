@@ -1,47 +1,52 @@
-with northbound_CTE as (
-	SELECT 
-		northbound_nearest_complex_id as existing_ada_complex_id,
-		northbound_nearest_stop_name  as existing_ada_stop_name,
-		*
-	exclude (
-		northbound_nearest_complex_id, 
-		northbound_nearest_stop_name,
-		southbound_nearest_stop_name,
-		southbound_nearest_complex_id)
-	FROM {{ref("stg_nearest_ada_stations")}}
-),
+with
+    northbound_cte as (
+        select
+            northbound_nearest_complex_id as existing_ada_complex_id,
+            northbound_nearest_stop_name as existing_ada_stop_name,
+            * exclude (
+                northbound_nearest_complex_id,
+                northbound_nearest_stop_name,
+                southbound_nearest_stop_name,
+                southbound_nearest_complex_id
+            )
+        from {{ ref("stg_nearest_ada_stations") }}
+    ),
 
-southbound_CTE as (
-	SELECT
-		southbound_nearest_complex_id as existing_ada_complex_id,
-		southbound_nearest_stop_name  as existing_ada_stop_name,
-		*
-	exclude (
-		northbound_nearest_complex_id,
-		northbound_nearest_stop_name,
-		southbound_nearest_stop_name,
-		southbound_nearest_complex_id)
-	FROM {{ref("stg_nearest_ada_stations")}}
-),
+    southbound_cte as (
+        select
+            southbound_nearest_complex_id as existing_ada_complex_id,
+            southbound_nearest_stop_name as existing_ada_stop_name,
+            * exclude (
+                northbound_nearest_complex_id,
+                northbound_nearest_stop_name,
+                southbound_nearest_stop_name,
+                southbound_nearest_complex_id
+            )
+        from {{ ref("stg_nearest_ada_stations") }}
+    ),
 
-unioned_CTE as (
-select * from northbound_CTE
-UNION ALL
-select * from southbound_CTE
-)
+    unioned_cte as (
+        select *
+        from northbound_cte
+        union all
+        select *
+        from southbound_cte
+    )
 
-SELECT
-	mta_sort_order
-   ,planned_ada_complex_id
-   ,planned_ada_station_name
-   ,IAC_PLANNED.gtfs_latitude	            planned_ada_complex_latitude
-   ,IAC_PLANNED.gtfs_longitude	            planned_ada_complex_longitude
-   ,existing_ada_complex_id         
-   ,existing_ada_stop_name          
-   ,IAC_Existing.gtfs_latitude	            existing_ada_complex_latitude
-   ,IAC_Existing.gtfs_longitude             existing_ada_complex_longitude
-FROM unioned_CTE				            U
-LEFT JOIN {{ref("int_all_complexes")}}		IAC_Planned
-	ON IAC_Planned.complex_id = U.planned_ada_complex_id
-LEFT JOIN {{ref("int_all_complexes")}}		IAC_Existing
-	ON IAC_EXISTING.complex_id = U.existing_ada_complex_id
+select
+    mta_sort_order,
+    planned_ada_complex_id,
+    planned_ada_station_name,
+    iac_planned.gtfs_latitude as planned_ada_complex_latitude,
+    iac_planned.gtfs_longitude as planned_ada_complex_longitude,
+    existing_ada_complex_id,
+    existing_ada_stop_name,
+    iac_existing.gtfs_latitude as existing_ada_complex_latitude,
+    iac_existing.gtfs_longitude as existing_ada_complex_longitude
+from unioned_cte u
+left join
+    {{ ref("int_all_complexes") }} iac_planned
+    on iac_planned.complex_id = u.planned_ada_complex_id
+left join
+    {{ ref("int_all_complexes") }} iac_existing
+    on iac_existing.complex_id = u.existing_ada_complex_id

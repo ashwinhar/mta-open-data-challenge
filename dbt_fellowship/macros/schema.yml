@@ -25,3 +25,5 @@ macros:
       - name: keys
         type: List
         description: Typically the keys listed in the macro description
+  - name: apply_multipliers
+    description: "{{doc('apply_multipliers')}}"
