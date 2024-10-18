@@ -1,1 +1,1 @@
-select * from {{ ref('stg_stations')}}
+select * from {{ ref("stg_stations") }}

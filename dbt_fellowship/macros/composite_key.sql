@@ -1,24 +1,23 @@
 {% macro composite_key_join(table_1, table_2, keys) %}
-    {{ table_1 }} 
-    JOIN {{ table_2 }}
-    ON
-    {%- for key in keys %}
-        {{ table_1 }}.{{ key }} = {{ table_2 }}.{{ key }}
-        {%- if not loop.last %} AND {% endif %}
-    {%- endfor %}
+    {{ table_1 }}
+    join
+        {{ table_2 }}
+        on {%- for key in keys %}
+            {{ table_1 }}.{{ key }} = {{ table_2 }}.{{ key }}
+            {%- if not loop.last %} and {% endif %}
+        {%- endfor %}
 {% endmacro %}
 
 {% macro composite_key_group_by(keys) %}
-    GROUP BY
-    {%- for key in keys %}
-        {{ key }}
-        {%- if not loop.last %}, {% endif %}
-    {%- endfor %}
+    group by
+        {%- for key in keys %}
+            {{ key }} {%- if not loop.last %}, {% endif %}
+        {%- endfor %}
 {% endmacro %}
 
 {% macro composite_key_join_conditions(table_1, table_2, keys) %}
     {%- for key in keys %}
         {{ table_1 }}.{{ key }} = {{ table_2 }}.{{ key }}
-        {%- if not loop.last %} AND {% endif %}
+        {%- if not loop.last %} and {% endif %}
     {%- endfor %}
 {% endmacro %}

@@ -1,9 +1,9 @@
-SELECT 
-    complex_id						ada_complex_id
-   ,LIST(DISTINCT stop_name)		stop_name_list
-   ,LIST(line)						line_list
-   ,FIRST(gtfs_latitude)            gtfs_latitude
-   ,FIRST(gtfs_longitude)           gtfs_longitude
-FROM {{ref("stg_stations")}}
-WHERE ada = 1
-GROUP BY complex_id
+select
+    complex_id as ada_complex_id,
+    list(distinct stop_name) as stop_name_list,
+    list(line) as line_list,
+    first(gtfs_latitude) as gtfs_latitude,
+    first(gtfs_longitude) as gtfs_longitude
+from {{ ref("stg_stations") }}
+where ada = 1
+group by complex_id

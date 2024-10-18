@@ -2,5 +2,4 @@ version: 2
 
 models:
   - name: dim_stations
-  - name: fct_ada_ridership
-  - name: fct_origin_destination
+  

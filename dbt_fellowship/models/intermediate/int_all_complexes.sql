@@ -1,6 +1,6 @@
-SELECT 
-    complex_id						complex_id
-   ,FIRST(gtfs_latitude)            gtfs_latitude
-   ,FIRST(gtfs_longitude)           gtfs_longitude
-FROM {{ref("stg_stations")}}
-GROUP BY complex_id
+select
+    complex_id complex_id,
+    first(gtfs_latitude) gtfs_latitude,
+    first(gtfs_longitude) gtfs_longitude
+from {{ ref("stg_stations") }}
+group by complex_id
