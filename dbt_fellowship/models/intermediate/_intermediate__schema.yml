@@ -129,7 +129,7 @@ models:
         description: "{{doc('origin_timestamp')}}"
       - name: origin_station_complex_id
         description: "{{doc('origin_station_complex_id')}}"
-        tests:
+        data_tests:
           - relationships:
                 to: ref('int_all_complexes')
                 field: complex_id

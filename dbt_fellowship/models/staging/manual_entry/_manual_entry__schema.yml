@@ -6,18 +6,34 @@ models:
     columns:
       - name: mta_sort_order
         description: "{{ doc('mta_sort_order')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 30
       - name: planned_ada_complex_id
         description: "{{ doc('planned_ada_complex_id')}}"
+        data_tests:
+          - relationships:
+                to: ref('int_all_complexes')
+                field: complex_id
       - name: planned_ada_station_id
         description: "{{ doc('planned_ada_station_id')}}"
       - name: planned_ada_station_name
         description: "{{ doc('planned_ada_station_name')}}"
       - name: northbound_nearest_complex_id
         description: "{{ doc('northbound_nearest_complex_id')}}"
+        data_tests:
+          - relationships:
+                to: ref('int_all_complexes')
+                field: complex_id
       - name: northbound_nearest_stop_name
         description: "{{ doc('northbound_nearest_station_name')}}"
       - name: southbound_nearest_complex_id
         description: "{{ doc('southbound_nearest_complex_id')}}"
+        data_tests:
+          - relationships:
+                to: ref('int_all_complexes')
+                field: complex_id
       - name: southbound_nearest_stop_name
         description: "{{ doc('southbound_nearest_station_name')}}"
   - name: stg_travel_times
@@ -27,20 +43,44 @@ models:
         description: "{{ doc('mta_sort_order')}}"
       - name: planned_ada_complex_id
         description: "{{ doc('planned_ada_complex_id')}}"
+        data_tests:
+          - relationships:
+                to: ref('int_all_complexes')
+                field: complex_id
       - name: planned_ada_station_name
         description: "{{ doc('planned_ada_station_name')}}"
       - name: planned_ada_complex_latitude
         description: "{{doc('complex_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: planned_ada_complex_longitude
         description: "{{doc('complex_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
       - name: existing_ada_complex_id
         description: "{{doc('existing_ada_complex_id')}}"
+        data_tests:
+          - relationships:
+                to: ref('int_all_complexes')
+                field: complex_id
       - name: existing_ada_stop_name
         description: "{{doc('existing_ada_stop_name')}}"
       - name: existing_ada_complex_latitude
         description: "{{doc('complex_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: existing_ada_complex_longitude
         description: "{{doc('complex_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
       - name: walking_time_sec
         description: "{{doc('walking_time_sec')}}"
       - name: train_time_sec
