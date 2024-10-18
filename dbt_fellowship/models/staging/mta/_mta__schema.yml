@@ -6,10 +6,17 @@ models:
     columns:
       - name: "gtfs_stop_id"
         description: "{{ doc('gtfs_stop_id')}}"
+        data_tests:
+          - unique
+          - not_null
       - name: "station_id"
         description: "{{ doc('station_id')}}"
+        data_tests:
+          - not_null
       - name: "complex_id"
         description: "{{ doc('complex_id')}}"
+        data_tests:
+          - not_null
       - name: "line"
         description: "{{ doc('line')}}"
       - name: "stop_name"

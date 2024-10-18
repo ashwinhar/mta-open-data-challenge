@@ -1,12 +1,13 @@
 version: 2
 models:
-  - name: int_hourly_ridership_filteraggregate
-    description: "{{ doc('int_hourly_ridership_aggregated')}}"
   - name: int_ada_complexes
     description: "{{doc('int_ada_complexes')}}"
     columns:
       - name: ada_complex_id
         description: All complex id values where at least one station in the complex is fully accessible
+        data_tests:
+          - unique
+          - not_null
       - name: stop_name_list
         description: All stops that are within the complex
       - name: line_list
@@ -20,10 +21,9 @@ models:
     columns:
       - name: complex_id
         description: "{{doc('complex_id')}}"
-        tests:
-          - relationships:
-                to: ref('stg_stations')
-                field: complex_id
+        data_tests:
+          - unique
+          - not_null
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
       - name: gtfs_longitude
@@ -45,6 +45,27 @@ models:
                 field: complex_id
       - name: total_ada_ridership 
         description: "{{doc('total_ada_ridership')}}"
+  - name: int_nearest_stations_latlong
+    description: Removing the northbound and southbound designations, applying a UNION, and adding (lat, long) information.
+    columns:
+      - name: mta_sort_order
+        description: "{{ doc('mta_sort_order')}}"
+      - name: planned_ada_complex_id
+        description: "{{ doc('planned_ada_complex_id')}}"
+      - name: planned_ada_station_name
+        description: "{{ doc('planned_ada_station_name')}}"
+      - name: planned_ada_complex_latitude
+        description: "{{doc('complex_latitude')}}"
+      - name: planned_ada_complex_longitude
+        description: "{{doc('complex_longitude')}}"
+      - name: existing_ada_complex_id
+        description: "{{doc('existing_ada_complex_id')}}"
+      - name: existing_ada_stop_name
+        description: "{{doc('existing_ada_stop_name')}}"
+      - name: existing_ada_complex_latitude
+        description: "{{doc('complex_latitude')}}"
+      - name: existing_ada_complex_longitude
+        description: "{{doc('complex_longitude')}}"
   - name: int_origin_destination_ada
     description: "{{doc('int_origin_destination_ada')}}"
     columns: 
@@ -60,7 +81,7 @@ models:
         description: "{{doc('origin_station_complex_id')}}"
         tests:
           - relationships:
-                to: ref('stg_stations')
+                to: ref('int_all_complexes')
                 field: complex_id
       - name: origin_station_complex_name
         description: "{{doc('origin_station_complex_name')}}"
@@ -72,6 +93,23 @@ models:
         description: "{{doc('estimated_average_ridership')}}"
       - name: proportion_from_origin
         description:  "{{doc('proportion_from_origin')}}"
+  - name: int_ridership_estimation
+    description: "{{doc('int_ridership_estimation')}}"
+    columns:
+    - name: origin_station_complex_id
+      description: "{{doc('origin_station_complex_id')}}"
+      tests:
+        - relationships:
+              to: ref('int_all_complexes')
+              field: complex_id
+    - name: destination_station_complex_id
+      description: "{{doc('destination_station_complex_id')}}"
+      tests:
+        - relationships:
+              to: ref('int_all_complexes')
+              field: complex_id
+    - name: estimated_ada_ridership
+      description: The number of mobility-impaired riders from a given origin complex to a destination complex within the time context. 
   - name: int_travel_times_aggregated
     description: "{{doc('int_travel_times_aggregated')}}"
     columns:
@@ -81,7 +119,7 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('stg_stations')
+              to: ref('int_all_complexes')
               field: complex_id
       - name: list_closest_planned_stations
         description: "{{doc('list_closest_planned_stations')}}"

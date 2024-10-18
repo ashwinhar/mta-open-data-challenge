@@ -58,6 +58,12 @@ Central, the `proportion_from_origin` would be 0.2 (20%).
 {% enddocs %}
 
 
+{% docs int_ridership_estimation %}
+Multiplies the proportion of riders to an estimation (see previous table in lineage for more documentation) by the total ADA riders. Note that the previous two tables are joined on the key (`origin_month`, `origin_day_of_week`, `origin_hour_of_day`,`origin_station_complex_id`). Then, we find the total estimated ridership for a particular (origin, destination) pair across the entire time context.
+
+{% enddocs %}
+
+
 {% docs int_travel_times_aggregated %}
 In this model we are trying to find the average time loss from every *existing* ADA-accessible complex to all corresponding planned ADA complexes. For example, let's take 96 St. station (`complex_id = 310`). It is currently ADA-accessible, and would be the closest complex for the mobility-impaired to use if they want to get to either Central Park North (110 St)/Lenox or 125 St/Lenox. Using some toy data, we might see something like this: 
 

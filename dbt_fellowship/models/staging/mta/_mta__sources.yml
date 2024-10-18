@@ -2,6 +2,7 @@ version: 2
 
 sources: 
   - name: mta
+    description: Tables that are extracted from the MTA Open Data Program. 
     database: mta_dev
     schema: mta
     tables:

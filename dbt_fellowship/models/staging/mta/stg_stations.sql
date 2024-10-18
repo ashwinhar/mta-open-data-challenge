@@ -1,13 +1,13 @@
 select
-    gtfs_stop_id                        gtfs_stop_id
-   ,station_id                          station_id
-   ,complex_id                          complex_id
-   ,line                                line
-   ,stop_name                           stop_name
-   ,borough                             borough
-   ,CAST(gtfs_latitude AS NUMERIC)      gtfs_latitude
-   ,CAST(gtfs_longitude AS NUMERIC)     gtfs_longitude
-   ,CAST(ada AS TINYINT)                ada
-   ,CAST(ada_northbound AS BOOLEAN)     ada_northbound
-   ,CAST(ada_southbound AS BOOLEAN)     ada_southbound
-from {{ source('mta','stations')}}
+    gtfs_stop_id as gtfs_stop_id,
+    station_id as station_id,
+    complex_id as complex_id,
+    line as line,
+    stop_name as stop_name,
+    borough as borough,
+    cast(gtfs_latitude as numeric) as gtfs_latitude,
+    cast(gtfs_longitude as numeric) as gtfs_longitude,
+    cast(ada as tinyint) as ada,
+    cast(ada_northbound as boolean) as ada_northbound,
+    cast(ada_southbound as boolean) as ada_southbound
+from {{ source("mta", "stations") }}

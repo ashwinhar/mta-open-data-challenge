@@ -2,4 +2,28 @@ version: 2
 
 models:
   - name: dim_stations
+    description: "{{ doc('stations')}}"
+    columns:
+      - name: "gtfs_stop_id"
+        description: "{{ doc('gtfs_stop_id')}}"
+      - name: "station_id"
+        description: "{{ doc('station_id')}}"
+      - name: "complex_id"
+        description: "{{ doc('complex_id')}}"
+      - name: "line"
+        description: "{{ doc('line')}}"
+      - name: "stop_name"
+        description: "{{ doc('stop_name')}}"
+      - name: "borough"
+        description: "{{ doc('borough')}}"
+      - name: "gtfs_latitude"
+        description: "{{ doc('gtfs_latitude')}}"
+      - name: "gtfs_longitude"
+        description: "{{ doc('gtfs_longitude')}}"
+      - name: "ada"
+        description: "{{ doc('ada')}}"
+      - name: "ada_northbound"
+        description: "{{ doc('ada_northbound')}}"
+      - name: "ada_southbound"
+        description: "{{ doc('ada_southbound')}}"
   
