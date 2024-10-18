@@ -14,8 +14,16 @@ models:
         description: All lines that are serviced within the complex
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: gtfs_longitude
         description: "{{doc('complex_gtfs_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
   - name: int_all_complexes
     description: "{{doc('int_all_complexes')}}"
     columns:
@@ -26,23 +34,38 @@ models:
           - not_null
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: gtfs_longitude
         description: "{{doc('complex_gtfs_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
   - name: int_hourly_ridership_aggregated
     description: "{{doc('int_hourly_ridership_aggregated')}}"
     columns:
       - name: origin_month
         description: "{{doc('origin_month')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 12
       - name: origin_day_of_week
         description: "{{doc('origin_day_of_week')}}"
+        data_tests:
+          - accepted_values:
+              values: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
       - name: origin_hour_of_day
         description: "{{doc('origin_hour_of_day')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 23
       - name: origin_station_complex_id
         description: "{{doc('origin_station_complex_id')}}"
-        tests:
-          - relationships:
-                to: ref('stg_stations')
-                field: complex_id
       - name: total_ada_ridership 
         description: "{{doc('total_ada_ridership')}}"
   - name: int_nearest_stations_latlong
@@ -56,25 +79,52 @@ models:
         description: "{{ doc('planned_ada_station_name')}}"
       - name: planned_ada_complex_latitude
         description: "{{doc('complex_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: planned_ada_complex_longitude
         description: "{{doc('complex_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
       - name: existing_ada_complex_id
         description: "{{doc('existing_ada_complex_id')}}"
       - name: existing_ada_stop_name
         description: "{{doc('existing_ada_stop_name')}}"
       - name: existing_ada_complex_latitude
         description: "{{doc('complex_latitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 40
+              max_value: 41
       - name: existing_ada_complex_longitude
         description: "{{doc('complex_longitude')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: -75
+              max_value: -72
   - name: int_origin_destination_ada
     description: "{{doc('int_origin_destination_ada')}}"
     columns: 
       - name: origin_month
         description: "{{doc('origin_month')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 12
       - name: origin_day_of_week
         description: "{{doc('origin_day_of_week')}}"
+        data_tests:
+          - accepted_values:
+              values: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
       - name: origin_hour_of_day
         description: "{{doc('origin_hour_of_day')}}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 23
       - name: origin_timestamp
         description: "{{doc('origin_timestamp')}}"
       - name: origin_station_complex_id
