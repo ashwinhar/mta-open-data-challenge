@@ -20,6 +20,10 @@ models:
     columns:
       - name: complex_id
         description: "{{doc('complex_id')}}"
+        tests:
+          - relationships:
+                to: ref('stg_stations')
+                field: complex_id
       - name: gtfs_latitude
         description: "{{doc('complex_gtfs_latitude')}}"
       - name: gtfs_longitude
@@ -35,6 +39,10 @@ models:
         description: "{{doc('origin_hour_of_day')}}"
       - name: origin_station_complex_id
         description: "{{doc('origin_station_complex_id')}}"
+        tests:
+          - relationships:
+                to: ref('stg_stations')
+                field: complex_id
       - name: total_ada_ridership 
         description: "{{doc('total_ada_ridership')}}"
   - name: int_origin_destination_ada
@@ -50,6 +58,10 @@ models:
         description: "{{doc('origin_timestamp')}}"
       - name: origin_station_complex_id
         description: "{{doc('origin_station_complex_id')}}"
+        tests:
+          - relationships:
+                to: ref('stg_stations')
+                field: complex_id
       - name: origin_station_complex_name
         description: "{{doc('origin_station_complex_name')}}"
       - name: destination_station_complex_id
@@ -65,6 +77,12 @@ models:
     columns:
       - name: existing_ada_complex_id
         description: "{{doc('existing_ada_complex_id')}}"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_stations')
+              field: complex_id
       - name: list_closest_planned_stations
         description: "{{doc('list_closest_planned_stations')}}"
       - name: avg_travel_time_diff

@@ -1,0 +1,4 @@
+version: 2
+data_tests:
+  - name: nearest_stations_quality_check
+    description: Ensure that all complex_id and station_id values in the manual_entry.nearest_stations table actually exist in the MTA dataset. 
