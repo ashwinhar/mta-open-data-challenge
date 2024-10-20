@@ -1,0 +1,7 @@
+TODO - Add in test to make sure that planned ada stations aren't already ada = 1 in the join
+TODO - Add in test to make sure that northbound complex has *full* ADA access
+TODO - Add in test to make sure that southbound complex has *full* ADA Access
+TODO - You have to paginate through the larger datasets
+TODO - Maybe bring in stations *and* complexes? 
+How to validate that there exists a guaranteed ada path between two places? Do we just have to assume that or figure out a likely path? What about a transfer?
+Refactor "line" in stg_stations to something else

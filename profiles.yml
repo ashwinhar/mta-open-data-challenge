@@ -1,4 +1,4 @@
-dbt_fellowship:
+accessibility_dbt:
   outputs:
     dev:
       type: duckdb
