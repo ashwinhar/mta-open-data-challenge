@@ -2,14 +2,25 @@
 import duckdb
 import pandas as pd
 from sodapy import Socrata
-import database_setup.config
-import database_setup.mta_dataset as mta
+import mta_dataset as mta
+from dotenv import load_dotenv
+import os
 
-MANUAL_ENTRY_SCHEMA = 'manual_entry'
+load_dotenv()
 
-##################### USER TO REPLACE WITH APPROPRIATE FILE PATHS ###########################
-NEAREST_ADA_STATIONS_PATH = '/Users/ashwin/Desktop/fellowship-capstone/data/nearest_ada_stations.csv'
-TRAVEL_TIMES_PATH = '/Users/ashwin/Desktop/fellowship-capstone/data/travel_times.csv'
+# Open Data Constsants
+NY_OPEN_DATA_API_TOKEN = os.getenv('TRAVEL_TIME_APP_ID')
+NY_OPEN_DATA_USERNAME = os.getenv('NY_OPEN_DATA_USERNAME')
+NY_OPEN_DATA_PASSWORD = os.getenv('NY_OPEN_DATA_PASSWORD')
+
+# Database Constants
+MTA_SCHEMA = os.getenv('MTA_SCHEMA')
+DEV_DATABASE = os.getenv('DEV_DATABASE')
+MANUAL_ENTRY_SCHEMA = os.getenv('MANUAL_ENTRY_SCHEMA')
+
+# File paths
+NEAREST_ADA_STATIONS_PATH = 'data/nearest_ada_stations.csv'
+TRAVEL_TIMES_PATH = 'data/travel_times.csv'
 #############################################################################################
 
 
@@ -30,9 +41,9 @@ def extract_dataset(dataset_code: str,
     limit = 100000000  # Limit records on API call
 
     client = Socrata("data.ny.gov",
-                     config.NY_OPEN_DATA_API_TOKEN,
-                     username=config.NY_OPEN_DATA_USERNAME,
-                     password=config.NY_OPEN_DATA_PASSWORD)
+                     NY_OPEN_DATA_API_TOKEN,
+                     username=NY_OPEN_DATA_USERNAME,
+                     password=NY_OPEN_DATA_PASSWORD)
 
     if where_clause:
         results = client.get(dataset_code,
@@ -161,11 +172,11 @@ def default_setup(overwrite=False) -> None:
         overwrite (bool): If set to True, drops existing tables and creates new ones
     """
 
-    with get_database_connection(config.DEV_DATABASE) as conn:
+    with get_database_connection(DEV_DATABASE) as conn:
 
         # Create necessary schemas if not exists
         create_schema(conn, MANUAL_ENTRY_SCHEMA)
-        create_schema(conn, config.MTA_SCHEMA)
+        create_schema(conn, MTA_SCHEMA)
 
         # Create stations table
         stations = mta.Stations()

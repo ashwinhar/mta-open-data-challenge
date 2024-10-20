@@ -23,6 +23,7 @@ the following variables correspondingly:
 - `NY_OPEN_DATA_API_TOKEN` = "[Your API Key]"
 - `NY_OPEN_DATA_USERNAME`= "[Your User Name]"
 - `NY_OPEN_DATA_PASSWORD`= "nodwap-Podged-cuswi4"
+7. Create a file called `src/accessibility_dbt/mta_dev.duckdb`
 
 
 ### Overview
