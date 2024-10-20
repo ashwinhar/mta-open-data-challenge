@@ -12,7 +12,7 @@ database_setup/__pycache__/config.cpython-312.pyc
 capstone.session.sql
 logs/dbt.log
 .DS_Store
-.vscode/settings.json
+/Users/ashwin/Desktop/fellowship-capstone/.vscode
 dbt_fellowship/mta_data_dictionaries
 database_setup/to_do.txt
 dbt_fellowship/models/staging/mta/to_do.txt
