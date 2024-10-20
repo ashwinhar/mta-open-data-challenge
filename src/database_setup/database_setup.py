@@ -2,8 +2,8 @@
 import duckdb
 import pandas as pd
 from sodapy import Socrata
-import config
-import mta_dataset as mta
+import database_setup.config
+import database_setup.mta_dataset as mta
 
 MANUAL_ENTRY_SCHEMA = 'manual_entry'
 
