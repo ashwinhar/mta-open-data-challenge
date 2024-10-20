@@ -8,7 +8,7 @@ kafka_output.log
 dbt_fellowship/models/example/my_first_dbt_model.sql
 dbt_fellowship/models/example/my_second_dbt_model.sql
 database_setup/__pycache__/config.cpython-312.pyc
-.vscode/settings.json
+/.vscode/*
 capstone.session.sql
 logs/dbt.log
 .DS_Store
@@ -22,3 +22,4 @@ dbt_fellowship/analyses/scratch.sql
 database_setup/__pycache__/config.cpython-312.pyc
 database_setup/__pycache__/*
 database_setup/travel_time/travel_time_sandbox.ipynb
+/__pycache__/*
