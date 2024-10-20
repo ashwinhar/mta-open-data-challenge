@@ -8,8 +8,8 @@ import mta_dataset as mta
 MANUAL_ENTRY_SCHEMA = 'manual_entry'
 
 ##################### USER TO REPLACE WITH APPROPRIATE FILE PATHS ###########################
-NEAREST_ADA_STATIONS_PATH = '/Users/ashwin/Desktop/fellowship-capstone/database_setup/nearest_ada_stations.csv'
-TRAVEL_TIMES_PATH = 'database_setup/results_async.csv'
+NEAREST_ADA_STATIONS_PATH = '/Users/ashwin/Desktop/fellowship-capstone/data/nearest_ada_stations.csv'
+TRAVEL_TIMES_PATH = '/Users/ashwin/Desktop/fellowship-capstone/data/travel_times.csv'
 #############################################################################################
 
 

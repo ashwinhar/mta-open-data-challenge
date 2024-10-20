@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from database_setup.database_setup import TRAVEL_TIMES_PATH
 from database_setup import config
 
+LAT_LONGS_PATH = '/Users/ashwin/Desktop/fellowship-capstone/data/latlongs.csv'
+
 
 @dataclass
 class StationGeography:
@@ -112,8 +114,7 @@ def default_setup(sdk: TravelTimeSdk) -> None:
     Parameters:
         sdk - Instance of TravelTimeSDK
     """
-    df_latlongs = pd.read_csv(
-        'travel_time/latlongs.csv').replace({np.nan: None})
+    df_latlongs = pd.read_csv(LAT_LONGS_PATH).replace({np.nan: None})
 
     # Running the async loop for walking time
     new_df = asyncio.run(process_all_rows(sdk, df_latlongs, Walking()))
