@@ -1,5 +1,5 @@
 '''Defines dataclasses that store information from MTA Datasets'''
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 # The timestamp with which all timestamp-bound tables are filtered to
 GLOBAL_TIMESTAMP_START = "'2023-01-02T00:00:00'"
@@ -62,10 +62,18 @@ class OriginDestination(MTADataset):
 
     https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-2/uhf3-t34z/about_data
     """
-    code = "uhf3-t34z"
-    table_name = "origin_destination"
-    default_where_clause = f"timestamp between {
-        GLOBAL_TIMESTAMP_START} and {GLOBAL_TIMESTAMP_END}"
+    code: str = field(default="uhf3-t34z")
+    table_name: str = field(default="origin_destination")
+    default_where_clause: str = field(default=f"timestamp between {
+        GLOBAL_TIMESTAMP_START} and {GLOBAL_TIMESTAMP_END}")
 
-    def __init__(self):
+    def __init__(self, code=None, table_name=None, default_where_clause=None):
+        # Allow overwriting the attributes if passed during initialization
+        if code:
+            self.code = code
+        if table_name:
+            self.table_name = table_name
+        if default_where_clause:
+            self.default_where_clause = default_where_clause
+
         super().__init__(self.code, self.table_name, self.default_where_clause)
