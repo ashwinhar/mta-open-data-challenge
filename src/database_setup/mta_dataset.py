@@ -46,12 +46,20 @@ class HourlyRidership(MTADataset):
 
     URL: https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data
     """
-    code = "wujg-7c2s"
-    table_name = "hourly_ridership"
-    default_where_clause = f"transit_timestamp between {
-        GLOBAL_TIMESTAMP_START} and {GLOBAL_TIMESTAMP_END}"
+    code: str = field(default="wujg-7c2s")
+    table_name: str = field(default="hourly_ridership")
+    default_where_clause: str = field(default=f"transit_timestamp between {
+        GLOBAL_TIMESTAMP_START} and {GLOBAL_TIMESTAMP_END}")
 
-    def __init__(self):
+    def __init__(self, code=None, table_name=None, default_where_clause=None):
+        # Allow overwriting the attributes if passed during initialization
+        if code:
+            self.code = code
+        if table_name:
+            self.table_name = table_name
+        if default_where_clause:
+            self.default_where_clause = default_where_clause
+
         super().__init__(self.code, self.table_name, self.default_where_clause)
 
 
