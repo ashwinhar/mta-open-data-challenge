@@ -2,7 +2,7 @@
 import duckdb
 import pandas as pd
 from sodapy import Socrata
-import mta_dataset as mta
+import database_setup.mta_dataset as mta
 from dotenv import load_dotenv
 import os
 
