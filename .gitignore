@@ -24,3 +24,4 @@ database_setup/__pycache__/*
 database_setup/travel_time/travel_time_sandbox.ipynb
 /__pycache__/*
 .env
+.coverage
