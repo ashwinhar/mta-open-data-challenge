@@ -87,7 +87,18 @@ sources:
             description: "{{doc('hourly_ridership_longitude')}}"
           - name: "georeference"
             description: No documentation available at source
-          
+      - name: hourly_ridership_1
+      - name: hourly_ridership_2
+      - name: hourly_ridership_3
+      - name: hourly_ridership_4
+      - name: hourly_ridership_5
+      - name: hourly_ridership_6
+      - name: hourly_ridership_7
+      - name: hourly_ridership_8
+      - name: hourly_ridership_9
+      - name: hourly_ridership_10
+      - name: hourly_ridership_11
+      - name: hourly_ridership_12
       - name: origin_destination
         description: "{{doc('origin_destination')}}"
         columns: 
