@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Open Data Constsants
-NY_OPEN_DATA_API_TOKEN = os.getenv('TRAVEL_TIME_APP_ID')
+NY_OPEN_DATA_API_TOKEN = os.getenv('NY_OPEN_DATA_API_TOKEN')
 NY_OPEN_DATA_USERNAME = os.getenv('NY_OPEN_DATA_USERNAME')
 NY_OPEN_DATA_PASSWORD = os.getenv('NY_OPEN_DATA_PASSWORD')
 
@@ -182,7 +182,7 @@ def default_setup(overwrite=False) -> None:
         stations = mta.Stations()
         new_create_table(conn, stations, overwrite)
 
-        # Create hourly_ridershipt table
+        # Create hourly_ridership table
         hourly_ridership = mta.HourlyRidership()
         new_create_table(conn, hourly_ridership, overwrite)
 
