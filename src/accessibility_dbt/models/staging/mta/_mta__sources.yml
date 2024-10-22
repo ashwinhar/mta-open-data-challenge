@@ -446,3 +446,15 @@ sources:
           description: No documentation available at source
         - name: destination_point
           description: No documentation available at source
+      - name: origin_destination_1
+      - name: origin_destination_2
+      - name: origin_destination_3
+      - name: origin_destination_4
+      - name: origin_destination_5
+      - name: origin_destination_6
+      - name: origin_destination_7
+      - name: origin_destination_8
+      - name: origin_destination_9
+      - name: origin_destination_10
+      - name: origin_destination_11
+      - name: origin_destination_12
