@@ -25,3 +25,4 @@ database_setup/travel_time/travel_time_sandbox.ipynb
 /__pycache__/*
 .env
 .coverage
+src/accessibility_dbt/analyses/scratch.sql
