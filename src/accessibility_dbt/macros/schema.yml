@@ -7,23 +7,37 @@ macros:
       - name: timestamp
         type: timestamp
         description: The timestamp that you want to extract day_of_week from. 
-  - name: composite_key_join
+  - name: composite_key_join_conditions
     description: "{{doc('composite_key_join')}}"
     arguments:
       - name: table_1
-        type: Some database object, typically a reference
-        description: First object part of the join
+        type: reference
+        description: First table part of the join
       - name: table_2
-        type: Some database object, typically a reference
-        description: Second object part of the join
+        type: reference
+        description: Second table part of the join
       - name: keys
-        type: List
-        description: Typically the keys listed in the macro description
-  - name: composite_key_group_by
-    description: "{{doc('composite_key_group')}}"
-    arguments:
-      - name: keys
-        type: List
-        description: Typically the keys listed in the macro description
+        type: list
+        description: The columns that you want to join the tables on. 
   - name: apply_multipliers
     description: "{{doc('apply_multipliers')}}"
+    arguments: 
+      - name: column_name
+        type: string
+        description: The column (must be of numeric data type) that you want to apply the multipliers to 
+  - name: hourly_ridership_columns
+    description: "{{doc('hourly_ridership_columns')}}"
+  - name: origin_destination_columns
+    description: "{{doc('origin_destination_columns')}}"
+  - name: union_tables
+    description: "{{doc('union_tables')}}"
+    arguments:
+      - name: table_name
+        type: string
+        description: The prefix of the table name that you want to join together (without the final suffix of a number)
+      - name: columns_macro
+        type: macro
+        description: The particular columns that you want in each part of the UNION
+      - name: num_tables
+        type: integer
+        description: The amount of tables that are a part of the union
