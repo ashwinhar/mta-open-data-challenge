@@ -60,33 +60,6 @@ sources:
             description: No documentation available at source
           - name: "georeference"
             description: No documentation available at source
-      - name: hourly_ridership
-        description: "{{ doc('hourly_ridership')}}"
-        columns:
-          - name: "transit_timestamp"
-            description: "{{doc('transit_timestamp')}}"
-          - name: "transit_mode"
-            description: "{{doc('transit_mode')}}"
-          - name: "station_complex_id"
-            description: "{{doc('station_complex_id')}}"
-          - name: "station_complex"
-            description: "{{doc('station_complex')}}"
-          - name: "payment_method"
-            description: "{{doc('payment_method')}}"
-          - name: "fare_class_category"
-            description: "{{doc('fare_class_category')}}"
-          - name: "ridership"
-            description: "{{doc('ridership')}}"
-          - name: "transfers"
-            description: "{{doc('transfers')}}"
-          - name: "borough"
-            description: "{{doc('borough')}}"
-          - name: "latitude"
-            description: "{{doc('hourly_ridership_latitude')}}"
-          - name: "longitude"
-            description: "{{doc('hourly_ridership_longitude')}}"
-          - name: "georeference"
-            description: No documentation available at source
       - name: hourly_ridership_1
         description: "{{ doc('hourly_ridership')}}"
         columns:
@@ -411,50 +384,423 @@ sources:
             description: "{{doc('hourly_ridership_longitude')}}"
           - name: "georeference"
             description: No documentation available at source
-      - name: origin_destination
+      - name: origin_destination_1
         description: "{{doc('origin_destination')}}"
         columns: 
-        - name: year
-          description: "{{doc('origin_year')}}"
-        - name: month
-          description: "{{doc('origin_month')}}"
-        - name: day_of_week
-          description: "{{doc('origin_day_of_week')}}"
-        - name: hour_of_day
-          description: "{{doc('origin_hour_of_day')}}"
-        - name: timestamp
-          description: "{{doc('origin_timestamp')}}"
-        - name: origin_station_complex_id
-          description: "{{doc('origin_station_complex_id')}}"
-        - name: origin_station_complex_name
-          description: "{{doc('origin_station_complex_name')}}"
-        - name: origin_latitude
-          description: "{{doc('origin_latitude')}}"
-        - name: origin_longitude
-          description: "{{doc('origin_longitude')}}"
-        - name: destination_station_complex_id
-          description: "{{doc('destination_station_complex_id')}}"
-        - name: destination_station_complex_name
-          description: "{{doc('destination_station_complex_name')}}"
-        - name: destination_latitude
-          description: "{{doc('destination_latitude')}}"
-        - name: destination_longitude
-          description: "{{doc('destination_longitude')}}"
-        - name: estimated_average_ridership
-          description:  "{{doc('estimated_average_ridership')}}"
-        - name: origin_point
-          description: No documentation available at source
-        - name: destination_point
-          description: No documentation available at source
-      - name: origin_destination_1
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_2
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_3
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_4
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_5
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_6
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_7
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_8
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_9
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_10
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_11
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source
       - name: origin_destination_12
+        description: "{{doc('origin_destination')}}"
+        columns: 
+          - name: year
+            description: "{{doc('origin_year')}}"
+          - name: month
+            description: "{{doc('origin_month')}}"
+          - name: day_of_week
+            description: "{{doc('origin_day_of_week')}}"
+          - name: hour_of_day
+            description: "{{doc('origin_hour_of_day')}}"
+          - name: timestamp
+            description: "{{doc('origin_timestamp')}}"
+          - name: origin_station_complex_id
+            description: "{{doc('origin_station_complex_id')}}"
+          - name: origin_station_complex_name
+            description: "{{doc('origin_station_complex_name')}}"
+          - name: origin_latitude
+            description: "{{doc('origin_latitude')}}"
+          - name: origin_longitude
+            description: "{{doc('origin_longitude')}}"
+          - name: destination_station_complex_id
+            description: "{{doc('destination_station_complex_id')}}"
+          - name: destination_station_complex_name
+            description: "{{doc('destination_station_complex_name')}}"
+          - name: destination_latitude
+            description: "{{doc('destination_latitude')}}"
+          - name: destination_longitude
+            description: "{{doc('destination_longitude')}}"
+          - name: estimated_average_ridership
+            description:  "{{doc('estimated_average_ridership')}}"
+          - name: origin_point
+            description: No documentation available at source
+          - name: destination_point
+            description: No documentation available at source

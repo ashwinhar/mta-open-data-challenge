@@ -278,7 +278,7 @@ Staged data from the [MTA Origin-Destination Ridership Estimate: 2023](https://d
 
 This dataset provides an estimate of subway travel patterns based on scaled-up OMNY and MetroCard return swipe data. It provides estimated passenger volumes for all populated origin-destination (O-D) pairs aggregated by month, day of the week, and hour of day. It also provides the name, ID, and approximate latitude and longitude of the origin and destination subway complexes.
 
-This table is filtered by `transit_timestamp` and is set to be filtered to the `GLOBAL_TIMESTAMP` variable in `*/fellowship_capstone/database_setup/mta_dataset.py`.
+This table is filtered by `transit_timestamp` and is set to be filtered to the `GLOBAL_TIMESTAMP` variable in `*/fellowship_capstone/database_setup/mta_dataset.py`. However, if this table has a numeric suffix (ex: `origin_destination_1`), it corresponds to a calendar *month* of data. "1" is January, "2" is February, and so on. 
 
 *Documentation copied directly from the MTA website*
 
