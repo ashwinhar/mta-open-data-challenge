@@ -1,1 +1,1 @@
-select {{ origin_destination_columns() }} from {{ source("mta", "hourly_ridership") }}
+{{ union_tables("hourly_ridership_", origin_destination_columns(), 12) }}
