@@ -175,8 +175,8 @@ Notes on the direction a station is accessible in if it is only accessible in on
 
 
 {% docs hourly_ridership %}
-Staged data from the [MTA Subway Hourly Ridership](https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data) dataset. This tabled is filtered by `transit_timestamp` and is set to be filtered to the `GLOBAL_TIMESTAMP`
-variable in `*/fellowship_capstone/database_setup/mta_dataset.py`.
+Staged data from the [MTA Subway Hourly Ridership](https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-February-202/wujg-7c2s/about_data) dataset. By default, this table is filtered by `transit_timestamp` and is set to be filtered to the `GLOBAL_TIMESTAMP`
+variable in `*/fellowship_capstone/database_setup/mta_dataset.py`. However, if this table has a numeric suffix (ex: `hourly_ridership_1`), it corresponds to a calendar *month* of data. "1" is January, "2" is February, and so on. 
 
 *Documentation copied directly from the MTA website*
 
