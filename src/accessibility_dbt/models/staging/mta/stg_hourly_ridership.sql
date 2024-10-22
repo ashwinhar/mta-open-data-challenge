@@ -1,1 +1,1 @@
-{{ union_tables("hourly_ridership_", origin_destination_columns(), 12) }}
+{{ union_tables("hourly_ridership_", hourly_ridership_columns(), 12) }}
