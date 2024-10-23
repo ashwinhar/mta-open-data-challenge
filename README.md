@@ -1,7 +1,7 @@
 # Impacts of NYCT ADA Expansion
 This project is for the [MTA Open Data Challenge](https://new.mta.info/article/mta-open-data-challenge). In light of the New York State Governor unilaterally striking down the [MTA's Congestion Pricing plan](https://www.governor.ny.gov/news/what-they-are-saying-governor-hochul-announces-pause-congestion-pricing-address-rising-cost), funding for the [2025-2029 Capital Plan](https://future.mta.info/capitalplan/) is in peril. The Capital Plan covers a suite of important repairs and enhancements to the system, one of which is expanded ADA access. 
 
-This project explores the benefits to New York City's ADA community should the full gamut of ADA station enhancements be completed, as well as the costs if it doesn't. 
+This project explores the benefits to New York City's mobility-impaired community should the full gamut of ADA station enhancements be completed. 
 
 ## Project Setup and Overview
 ### Setup
@@ -12,18 +12,10 @@ This project explores the benefits to New York City's ADA community should the f
 conda env create -f environment.yml -n my_environment_name
 ```
 3. I used VSCode for this project. If you'd like to do the same, you can download it [here](https://code.visualstudio.com/download)
-4. Since I use DuckDB for this project, I thought it was useful to download the [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) and corresponding [DuckDB SQLTools](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.duckdb-sql-tools) extensions. SQLTools doesn't work super well with DuckDB, so I might suggest different connections in future versions of this project.
-5. Make sure that you "brew install" node.js
-6. You'll have to create a `config.py` file in `/database_setup/` with a few variables defined. Follow the 
-instructions on the NY Open Data Program website to create
-an account. After you have your account, you should get a 
-username, password, and API key. Within `config.py` set
-the following variables correspondingly: 
-
-- `NY_OPEN_DATA_API_TOKEN` = "[Your API Key]"
-- `NY_OPEN_DATA_USERNAME`= "[Your User Name]"
-- `NY_OPEN_DATA_PASSWORD`= "nodwap-Podged-cuswi4"
-7. Create a file called `src/accessibility_dbt/mta_dev.duckdb`
+4. Duplicate the `example.env` file and rename to `.env`: 
+- Follow the instructions [here](https://support.socrata.com/hc/en-us/articles/115004055807-How-to-Sign-Up-for-a-Tyler-Data-Insights-ID) to get the values for the `NY_OPEN_DATA` variables. 
+- Sign up for TravelTime [here](https://account.traveltime.com/login) to get the values for the `TRAVEL_TIME` variables. 
+5. Create a file called `src/accessibility_dbt/mta_dev.duckdb`
 
 
 ### Overview
