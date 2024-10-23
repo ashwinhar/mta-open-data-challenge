@@ -6,6 +6,7 @@ from sodapy import Socrata
 import database_setup.mta_dataset as mta
 from dotenv import load_dotenv
 import os
+import time
 
 load_dotenv()
 
@@ -159,6 +160,55 @@ def new_create_table(
         except Exception as e:
             print("Extract failed, exception message as follows")
             print(e)
+
+
+def year_setup(overwrite=False) -> None:
+    """
+    Set up full year of data (2023) for OriginDestination and HourlyRidership
+
+    Be very careful with this! This takes several hours to complete, but is necessary for the current state of the model.
+    time.sleep(x) is used because I noticed that the API sometimes times out for large requests.
+    """
+    od_template = mta.OriginDestination()
+    hr_template = mta.HourlyRidership()
+    default_name_od = od_template.table_name
+    default_name_hr = hr_template.table_name
+
+    timestamp_dict = {
+        1: {"start": "'2023-01-01T00:00:00'", "end": "'2023-02-01T00:00:00'"},
+        2: {"start": "'2023-02-01T00:00:00'", "end": "'2023-03-01T00:00:00'"},
+        3: {"start": "'2023-03-01T00:00:00'", "end": "'2023-04-01T00:00:00'"},
+        4: {"start": "'2023-04-01T00:00:00'", "end": "'2023-05-01T00:00:00'"},
+        5: {"start": "'2023-05-01T00:00:00'", "end": "'2023-06-01T00:00:00'"},
+        6: {"start": "'2023-06-01T00:00:00'", "end": "'2023-07-01T00:00:00'"},
+        7: {"start": "'2023-07-01T00:00:00'", "end": "'2023-08-01T00:00:00'"},
+        8: {"start": "'2023-08-01T00:00:00'", "end": "'2023-09-01T00:00:00'"},
+        9: {"start": "'2023-09-01T00:00:00'", "end": "'2023-10-01T00:00:00'"},
+        10: {"start": "'2023-10-01T00:00:00'", "end": "'2023-11-01T00:00:00'"},
+        11: {"start": "'2023-11-01T00:00:00'", "end": "'2023-12-01T00:00:00'"},
+        12: {"start": "'2023-12-01T00:00:00'", "end": "'2024-01-01T00:00:00'"},
+    }
+
+    with get_database_connection(DEV_DATABASE) as conn:
+        for month in range(1, 13):
+            print(f"Building tables for month={month}")
+            where_clause = f"month = {month} AND year = 2023"
+            od_monthly = mta.OriginDestination(
+                table_name=default_name_od + f"_{month}",
+                default_where_clause=where_clause,
+            )
+            new_create_table(conn, od_monthly, overwrite)
+            time.sleep(10)
+
+            hr_where_clause = f"transit_timestamp >= {timestamp_dict[month].get('start')} and transit_timestamp < {
+                timestamp_dict[month].get('end')}"
+
+            hr_monthly = mta.HourlyRidership(
+                table_name=default_name_hr + f"_{month}",
+                default_where_clause=hr_where_clause,
+            )
+            new_create_table(conn, hr_monthly, overwrite)
+            time.sleep(30)
 
 
 def default_setup(overwrite=False) -> None:
