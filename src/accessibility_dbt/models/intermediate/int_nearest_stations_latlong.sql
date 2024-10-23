@@ -44,9 +44,9 @@ select
     iac_existing.gtfs_latitude as existing_ada_complex_latitude,
     iac_existing.gtfs_longitude as existing_ada_complex_longitude
 from unioned_cte u
-left join
+inner join
     {{ ref("int_all_complexes") }} iac_planned
     on iac_planned.complex_id = u.planned_ada_complex_id
-left join
+inner join
     {{ ref("int_all_complexes") }} iac_existing
     on iac_existing.complex_id = u.existing_ada_complex_id

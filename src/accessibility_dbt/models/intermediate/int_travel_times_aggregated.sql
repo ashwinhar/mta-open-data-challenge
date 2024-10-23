@@ -6,13 +6,26 @@
 -- Walking time for the mobility-impaired will be slower, and based on research (see
 -- README) can be around 35%.
 {% set mobility_scale = 1.35 %}
-
 with
+    /*
+    The TravelTime API returns multiple records for the same request sometimes,
+    presumably due to the async thing. We randomly pick one record from each
+    distinct combo
+    */
+    row_nums as (
+        select
+            *,
+            row_number() over (
+                partition by planned_ada_complex_id, existing_ada_complex_id
+            ) as row_num
+        from {{ ref("stg_travel_times") }}
+    ),
+    distinct_combos as (select * exclude row_num from row_nums where row_num = 1),
     time_diff_cte as (
         select
             walking_time_sec *{{ mobility_scale }} - train_time_sec as travel_time_diff,
             *
-        from {{ ref("stg_travel_times") }}
+        from distinct_combos
         where existing_ada_complex_id is not null
     )
 
