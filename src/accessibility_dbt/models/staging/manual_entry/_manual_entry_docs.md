@@ -32,7 +32,7 @@ My best guess as to the matching `station_id` available in `mta.stations`.
 
 {% docs planned_ada_station_name %}
 
-The exact station name referenced in pg. 187 (pdf pg. 95) of the [2025-2029 Capital Plan] (https://future.mta.info/capitalplan/). May be repeated across records in case the station name references multiple `station_id` values. 
+The exact station name referenced in pg. 187 (pdf pg. 95) of the [2025-2029 Capital Plan] (https://future.mta.info/capitalplan/) planned for ADA access. May be repeated across records in case the station name references multiple `station_id` values. 
 
 {% enddocs %}
 

@@ -53,5 +53,21 @@ models:
         description: "{{doc('total_time_gain_hrs')}}"
       - name: "total_time_gain_hrs_100p"
         description: "{{doc('total_time_gain_hrs')}}"
+  - name: fct_station_priority
+    description: Summarizes fct_time_gain and shows the time gain for each planned ADA station at different estimation levels
+    columns:
+      - name: "planned_ada_station"
+        description: "{{doc('planned_ada_station_name')}}"
+      - name: "total_time_gain_hrs_2p"
+        description: "{{doc('total_time_gain_hrs')}}"
+      - name: "total_time_gain_hrs_4p"
+        description: "{{doc('total_time_gain_hrs')}}"
+      - name: "total_time_gain_hrs_6p"
+        description: "{{doc('total_time_gain_hrs')}}"
+      - name: "total_time_gain_hrs_8p"
+        description: "{{doc('total_time_gain_hrs')}}"
+      - name: "total_time_gain_hrs_10p"
+        description: "{{doc('total_time_gain_hrs')}}"
+      
       
   

@@ -11,11 +11,11 @@ with
     )
 select
     planned_ada_station,
-    round(sum(adjusted_time_gain_2p), 2) as total_time_gain_2p,
-    round(sum(adjusted_time_gain_4p), 2) as total_time_gain_4p,
-    round(sum(adjusted_time_gain_6p), 2) as total_time_gain_6p,
-    round(sum(adjusted_time_gain_8p), 2) as total_time_gain_8p,
-    round(sum(adjusted_time_gain_10p), 2) as total_time_gain_10p,
+    round(sum(adjusted_time_gain_2p), 2) as total_time_gain_hrs_2p,
+    round(sum(adjusted_time_gain_4p), 2) as total_time_gain_hrs_4p,
+    round(sum(adjusted_time_gain_6p), 2) as total_time_gain_hrs_6p,
+    round(sum(adjusted_time_gain_8p), 2) as total_time_gain_hrs_8p,
+    round(sum(adjusted_time_gain_10p), 2) as total_time_gain_hrs_10p,
 from cte
 group by 1
 order by 2 desc
