@@ -159,7 +159,7 @@ models:
               to: ref('int_all_complexes')
               field: complex_id
     - name: estimated_ada_ridership
-      description: The number of mobility-impaired riders from a given origin complex to a destination complex within the time context. 
+      description: "{{doc('estimated_ada_ridership')}}"
   - name: int_travel_times_aggregated
     description: "{{doc('int_travel_times_aggregated')}}"
     columns:

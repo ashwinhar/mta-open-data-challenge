@@ -168,6 +168,9 @@ def year_setup(overwrite=False) -> None:
 
     Be very careful with this! This takes several hours to complete, but is necessary for the current state of the model.
     time.sleep(x) is used because I noticed that the API sometimes times out for large requests.
+
+    Params:
+        overwrite (bool) - Whether to drop existing tables (if exists) and create a new one.
     """
     od_template = mta.OriginDestination()
     hr_template = mta.HourlyRidership()

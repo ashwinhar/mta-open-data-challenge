@@ -86,6 +86,11 @@ All corresponding `planned_ada_station_name` values corresponding to the `existi
 {% enddocs %}
 
 {% docs avg_travel_time_diff%}
-The average of the `travel_time_diff` (sec), where `travel_time_diff` is the difference between `walking_time_sec` and `train_time_sec`. 
+The average of the `travel_time_diff` (sec) from the existing ADA station to all of the closest planned ADA stations, where `travel_time_diff` is the difference between `walking_time_sec` and `train_time_sec`. 
 
 {% enddocs%}
+
+{% docs estimated_ada_ridership %}
+The number of mobility-impaired riders from a given origin complex to a destination complex within the time context. 
+
+{% enddocs %}
