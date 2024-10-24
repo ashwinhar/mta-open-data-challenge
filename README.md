@@ -5,17 +5,12 @@ The new [2025-2029 Capital Plan](https://future.mta.info/capitalplan/) covers a 
 
 The Capital Plan outlines a plan to expand ADA access to approximately 30 new stations. While more accessilibity is obviously better, a data-driven estimate of how much time mobility-impaired people (MIP) will "get back" with more access would provide the specificity the MTA might need to secure funding. 
 
-Based on three datasets: Stations, Origin-Destination 2023, and Hourly Ridership, I estimate that MIP in New York City will save between **50,000 - 252,000 hrs each year** after the expansion is complete. Furthermore, 
-
-[[[TOC]]]
-
 At the outset, we assume that for a mobility-impaired person to reach one of the planned ADA stations (PAS) in the present day, they need to travel to an existing ADA station (EAS) and walk (or power a wheelchair) the rest of the way. After the MTA expands access, they can take the train point-to-point. Therefore, the “time gain” in their future trip is the difference in train time and walking time between one of the nearest existing ADA stations and their “true” intended destination station. 
 
-In order to deliver on this project, it is imperative that the state government continues to support the MTA's funding. 
+Based on three datasets: Stations, Origin-Destination 2023, and Hourly Ridership, I estimate that MIP in New York City will save between **50,000+ hrs per year** after the expansion is complete, assuming that *just 2% of MIP rides have a different intended destination*. If we assume that something like 10% of rides had a different intended destination, this number goes up to 250k+ hrs. 
 
-This project estimates the amount of hours mobility-impaired people in New York City will save each year if the MTA is successful in completing this expansion. 
-
-Tying the ADA expansion project to a specific number makes the gains *specific*, and may provide different stakeholder groups the political ammunition to fight for what the MTA wants to do. 
+Here's a plot of how much time might be gained for each planned ADA station in priority order: 
+![Stations in priority order](visuals/results.jpg)
 
 Three stakeholder groups can use this analysis: 
 1. The MTA - To continue to advocate for funding and secure it for important projects 
