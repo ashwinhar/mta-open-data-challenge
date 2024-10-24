@@ -7,7 +7,7 @@ with
         from {{ ref("int_ridership_estimation") }} re
         group by re.destination_station_complex_id
     ),
-    -- Find the total time loss for each relevant existing ada complex
+    -- Find the total time gain for each relevant existing ada complex
     calculation_before_scalars_cte as (
         select
             rpd.existing_ada_complex_id,
@@ -17,7 +17,7 @@ with
             tta.avg_travel_time_diff,
             round(
                 rpd.estimated_ada_ridership * tta.avg_travel_time_diff / 3600, 2
-            ) as total_time_loss_hrs
+            ) as total_time_gain_hrs
         from ridership_per_destination_cte as rpd
         left join
             {{ ref("int_ada_complexes") }} as iac
@@ -33,6 +33,6 @@ select
     list_closest_planned_stations as planned_ada_stations,
     round(estimated_ada_ridership, 0) as estimated_ada_ridership,
     avg_travel_time_diff as avg_travel_time_diff_sec,
-    {{ apply_multipliers("total_time_loss_hrs") }},
-    total_time_loss_hrs as total_time_loss_hrs_100p
+    {{ apply_multipliers("total_time_gain_hrs") }},
+    total_time_gain_hrs as total_time_gain_hrs_100p
 from calculation_before_scalars_cte as cbs
