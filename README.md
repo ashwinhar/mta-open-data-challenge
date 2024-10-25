@@ -49,7 +49,12 @@ dbt run
 
 [dbt](https://www.getdbt.com) fully handles the transformation layer of the project. dbt does a remarkable job handling documentation for all the data transformations. Rather than reproduce the documentation in this README, I strongly recommend you investigate [my dbt documentation site](https://mta-open-data-challenge.netlify.app/#!/overview). 
 
-This site thoroughly explains all data transformations, and includes *column-level* documentation.  
+This site thoroughly explains all data transformations, and includes *column-level* documentation.  If you prefer, you can also navigate to `src/accessibility_dbt` in your terminal and then run
+
+```bash
+dbt docs generate
+dbt docs serve
+```
 
 
 ## Business Process Overview
