@@ -9,7 +9,7 @@ Three datasets are used int his analysis: [Stations](https://data.ny.gov/Transpo
 
 
 
-For a more "readable" business case, you can see the deck below: 
+For a more "readable" business case, you can see the deck [here](https://mtaopendatachallenge.my.canva.site/)
 
 ## Project Setup and Overview
 ### Environment Setup
