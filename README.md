@@ -116,7 +116,7 @@ A particular destination station might be a candidate for walking to *multiple* 
 
 ![multiple_pas](visuals/multiple_pas.png)
 
-We use the TravelTime API to find the *train time* and *walking time* from Metrpolitan Av to both Flushing Av and Myrtle-Willoughby Avs, and then average the differences. For example:
+We use the TravelTime API to find the *train time* and *walking time* from Metropolitan Av to both Flushing Av and Myrtle-Willoughby Avs, and then average the differences. For example:
 
 | `existing_ada_station`| `planned_ada_station` | `walking_time_sec` | `train_time_sec` | `time_difference` |
 |-----------------------|-----------------------|--------------------|------------------|-------------------|
