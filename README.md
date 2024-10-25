@@ -1,4 +1,4 @@
-# Mobility-impaired New Yorkers stand to get back 50,000+ hrs per year if the MTA's Capital Plan is successful
+# Mobility-impaired New Yorkers might save 50,000+ hrs per year if the MTA's Capital Plan is successful
 This project is for the [MTA Open Data Challenge](https://new.mta.info/article/mta-open-data-challenge). 
 
 The new [2025-2029 Capital Plan](https://future.mta.info/capitalplan/) covers a suite of exciting projects that require funding over the next four years. However, the MTA received a crushing blow to its funding since the New York State Governor unilaterally paused the [MTA's Congestion Pricing plan](https://www.governor.ny.gov/news/what-they-are-saying-governor-hochul-announces-pause-congestion-pricing-address-rising-cost). In order to provide **more political will to support the MTA**, this project quantifies the gains to be made by one of the projects in the Capital Plan, specifically expanded ADA access.  
@@ -49,7 +49,12 @@ dbt run
 
 [dbt](https://www.getdbt.com) fully handles the transformation layer of the project. dbt does a remarkable job handling documentation for all the data transformations. Rather than reproduce the documentation in this README, I strongly recommend you investigate [my dbt documentation site](https://mta-open-data-challenge.netlify.app/#!/overview). 
 
-This site thoroughly explains all data transformations, and includes *column-level* documentation.  
+This site thoroughly explains all data transformations, and includes *column-level* documentation.  If you prefer, you can also navigate to `src/accessibility_dbt` in your terminal and then run
+
+```bash
+dbt docs generate
+dbt docs serve
+```
 
 
 ## Business Process Overview
