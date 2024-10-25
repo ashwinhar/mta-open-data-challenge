@@ -1,4 +1,4 @@
-# Mobility-impaired New Yorkers stand to get back 50,000+ hrs per year if the MTA's Capital Plan is successful
+# Mobility-impaired New Yorkers might save 50,000+ hrs per year if the MTA's Capital Plan is successful
 This project is for the [MTA Open Data Challenge](https://new.mta.info/article/mta-open-data-challenge). 
 
 The new [2025-2029 Capital Plan](https://future.mta.info/capitalplan/) covers a suite of exciting projects that require funding over the next four years. However, the MTA received a crushing blow to its funding since the New York State Governor unilaterally paused the [MTA's Congestion Pricing plan](https://www.governor.ny.gov/news/what-they-are-saying-governor-hochul-announces-pause-congestion-pricing-address-rising-cost). In order to provide **more political will to support the MTA**, this project quantifies the gains to be made by one of the projects in the Capital Plan, specifically expanded ADA access.  
